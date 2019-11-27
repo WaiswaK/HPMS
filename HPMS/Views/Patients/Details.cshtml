@@ -1,0 +1,50 @@
+﻿@model HPMS.Models.Patient
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Patient</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Demographic.Given_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Demographic.Given_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Next_of_Kin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Next_of_Kin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Special_Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Special_Category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Care_Entry_Point)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Care_Entry_Point)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

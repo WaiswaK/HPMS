@@ -1,0 +1,42 @@
+﻿@model HPMS.Models.History
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>History</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Staff.NIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Staff.NIN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Workpace)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Workpace)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duration)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.HID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

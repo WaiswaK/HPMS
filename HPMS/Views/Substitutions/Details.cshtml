@@ -1,0 +1,66 @@
+﻿@model HPMS.Models.Substitution
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Substitution</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Reason.Reason1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reason.Reason1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reason1.Reason1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reason1.Reason1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Substitution_Line.Line_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Substitution_Line.Line_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Substitution_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Substitution_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Regimen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Regimen)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Substution_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

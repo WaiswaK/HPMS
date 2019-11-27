@@ -1,0 +1,42 @@
+﻿@model HPMS.Models.Education
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Education</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Staff.NIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Staff.NIN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.School)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.School)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Award)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Award)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

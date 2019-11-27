@@ -1,0 +1,322 @@
+﻿@model HPMS.Models.Visit
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Visit</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Patient.NIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient.NIN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Visit_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Visit_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_Next_Visit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_Next_Visit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_of_Birth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_of_Birth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nutrition_Assessment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nutrition_Assessment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pregnancy_Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pregnancy_Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gestation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gestation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FP_Method)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FP_Method)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CaCx_Screening)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CaCx_Screening)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TB_Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TB_Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TPT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TPT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TPT_Effects)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TPT_Effects)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diagnosis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diagnosis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ART_Effects)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ART_Effects)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hep_Test)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hep_Test)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hep_Result)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hep_Result)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Syphilis_Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Syphilis_Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CTX)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CTX)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Other_Meds)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Other_Meds)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ARV_Drugs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ARV_Drugs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fluconazole)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fluconazole)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tests_and_Investigations)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tests_and_Investigations)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DSD_Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DSD_Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MUAC_SCORE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MUAC_SCORE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Height)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Height)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight_Score)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight_Score)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Height_Score)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Height_Score)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BMI_Score)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BMI_Score)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Blood_pressure___Systolic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Blood_pressure___Systolic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Blood_pressure___Diastolic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Blood_pressure___Diastolic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Blood_Sugar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Blood_Sugar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Temperature)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Temperature)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tobacco_Use)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tobacco_Use)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CD4_Count)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CD4_Count)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clinical_Stage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clinical_Stage)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Visit_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

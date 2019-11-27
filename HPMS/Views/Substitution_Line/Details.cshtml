@@ -1,0 +1,26 @@
+﻿@model HPMS.Models.Substitution_Line
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Substitution_Line</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Line_Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Line_Number)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Line_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

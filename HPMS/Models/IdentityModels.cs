@@ -21,7 +21,7 @@ namespace HPMS.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("HPMSEntities", throwIfV1Schema: false)
         {
         }
 

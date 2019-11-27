@@ -1,0 +1,45 @@
+﻿@model IEnumerable<HPMS.Models.Education>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Staff.NIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.School)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Award)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Staff.NIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.School)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Award)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EID })
+        </td>
+    </tr>
+}
+
+</table>
