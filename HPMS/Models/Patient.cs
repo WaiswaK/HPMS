@@ -18,6 +18,7 @@ namespace HPMS.Models
 
         [Key]
         [StringLength(50)]
+        [Display(Name = "Patient")]
         public string PID { get; set; }
 
         [Required]
@@ -25,13 +26,16 @@ namespace HPMS.Models
         public string NIN { get; set; }
 
         [Column("Next of Kin")]
+        [Display(Name = "Next of Kin")]
         public string Next_of_Kin { get; set; }
 
         [Column("Special Category")]
+        [Display(Name = "Special Category")]
         [StringLength(50)]
         public string Special_Category { get; set; }
 
         [Column("Care Entry Point")]
+        [Display(Name = "Care Entry Point")]
         [StringLength(50)]
         public string Care_Entry_Point { get; set; }
 

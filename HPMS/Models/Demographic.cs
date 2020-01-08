@@ -21,13 +21,16 @@ namespace HPMS.Models
         public string NIN { get; set; }
 
         [Column("Given Name")]
+        [Display(Name = "Given Name")]
         [Required]
         public string Given_Name { get; set; }
 
         [Column("Midle Name")]
+        [Display(Name = "Midle Name")]
         public string Midle_Name { get; set; }
 
         [Column("Family Name")]
+        [Display(Name = "Family Name")]
         [Required]
         public string Family_Name { get; set; }
 
@@ -35,11 +38,13 @@ namespace HPMS.Models
         public string Gender { get; set; }
 
         [Column("Date of Birth", TypeName = "date")]
+        [Display(Name = "Date of Birth")]
         public DateTime? Date_of_Birth { get; set; }
 
         public string Address { get; set; }
 
         [Column("Phone Number")]
+        [Display(Name = "Phone Number")]
         [StringLength(50)]
         public string Phone_Number { get; set; }
 

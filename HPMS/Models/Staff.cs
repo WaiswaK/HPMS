@@ -25,6 +25,7 @@ namespace HPMS.Models
         public string NIN { get; set; }
 
         [Column("Job Description")]
+        [Display(Name = "Job Description")]
         public string Job_Description { get; set; }
 
         public virtual Demographic Demographic { get; set; }

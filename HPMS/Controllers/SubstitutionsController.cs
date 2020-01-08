@@ -17,7 +17,7 @@ namespace HPMS.Controllers
         // GET: Substitutions
         public ActionResult Index()
         {
-            var substitutions = db.Substitutions.Include(s => s.Reason).Include(s => s.Reason1).Include(s => s.Substitution_Line);
+            var substitutions = db.Substitutions.Include(s => s.Reason1).Include(s => s.Reason1).Include(s => s.Substitution_Line);
             return View(substitutions.ToList());
         }
 

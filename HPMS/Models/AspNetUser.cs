@@ -46,9 +46,6 @@ namespace HPMS.Models
         [StringLength(256)]
         public string FullName { get; set; }
 
-        [StringLength(50)]
-        public string NIN { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetUserClaim> AspNetUserClaims { get; set; }
 

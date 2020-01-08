@@ -17,6 +17,7 @@ namespace HPMS.Models
 
         [Key]
         [Column("Line ID")]
+        [Display(Name = "Substitution Line")]
         [StringLength(50)]
         public string Line_ID { get; set; }
 
