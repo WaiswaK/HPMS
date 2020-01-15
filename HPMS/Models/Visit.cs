@@ -151,6 +151,10 @@ namespace HPMS.Models
         [StringLength(50)]
         public string Clinical_Stage { get; set; }
 
+        [Column("Viral Load", TypeName = "numeric")]
+        [Display(Name = "Viral Load")]
+        public decimal? Viral_Load { get; set; }
+
         public virtual Patient Patient { get; set; }
     }
 }

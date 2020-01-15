@@ -198,7 +198,10 @@
     <Compile Include="Controllers\SubstitutionsController.cs" />
     <Compile Include="Controllers\Substitution_LineController.cs" />
     <Compile Include="Controllers\UserAccountController.cs" />
+    <Compile Include="Controllers\VisitsAPIController.cs" />
     <Compile Include="Controllers\VisitsController.cs" />
+    <Compile Include="DataModels\ResultData.cs" />
+    <Compile Include="DataModels\UserData.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

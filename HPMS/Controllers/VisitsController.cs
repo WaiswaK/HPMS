@@ -44,7 +44,7 @@ namespace HPMS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Visit_ID,PID,Visit_Date,Date_Next_Visit,Date_of_Birth,Nutrition_Assessment,Pregnancy_Status,Gestation,FP,FP_Method,CaCx_Screening,TB_Status,TPT,TPT_Effects,Diagnosis,ART_Effects,Hep_Test,Hep_Result,Syphilis_Status,CTX,Other_Meds,ARV_Drugs,Fluconazole,Tests_and_Investigations,DSD_Model,SID,MUAC_SCORE,Weight,Height,Weight_Score,Height_Score,BMI_Score,Blood_pressure___Systolic,Blood_pressure___Diastolic,Blood_Sugar,Temperature,Tobacco_Use,CD4_Count,Clinical_Stage")] Visit visit)
+        public ActionResult Create([Bind(Include = "Visit_ID,PID,Visit_Date,Date_Next_Visit,Date_of_Birth,Nutrition_Assessment,Pregnancy_Status,Gestation,FP,FP_Method,CaCx_Screening,TB_Status,TPT,TPT_Effects,Diagnosis,ART_Effects,Hep_Test,Hep_Result,Syphilis_Status,CTX,Other_Meds,ARV_Drugs,Fluconazole,Tests_and_Investigations,DSD_Model,SID,MUAC_SCORE,Weight,Height,Weight_Score,Height_Score,BMI_Score,Blood_pressure___Systolic,Blood_pressure___Diastolic,Blood_Sugar,Temperature,Tobacco_Use,CD4_Count,Clinical_Stage,Viral_Load")] Visit visit)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace HPMS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Visit_ID,PID,Visit_Date,Date_Next_Visit,Date_of_Birth,Nutrition_Assessment,Pregnancy_Status,Gestation,FP,FP_Method,CaCx_Screening,TB_Status,TPT,TPT_Effects,Diagnosis,ART_Effects,Hep_Test,Hep_Result,Syphilis_Status,CTX,Other_Meds,ARV_Drugs,Fluconazole,Tests_and_Investigations,DSD_Model,SID,MUAC_SCORE,Weight,Height,Weight_Score,Height_Score,BMI_Score,Blood_pressure___Systolic,Blood_pressure___Diastolic,Blood_Sugar,Temperature,Tobacco_Use,CD4_Count,Clinical_Stage")] Visit visit)
+        public ActionResult Edit([Bind(Include = "Visit_ID,PID,Visit_Date,Date_Next_Visit,Date_of_Birth,Nutrition_Assessment,Pregnancy_Status,Gestation,FP,FP_Method,CaCx_Screening,TB_Status,TPT,TPT_Effects,Diagnosis,ART_Effects,Hep_Test,Hep_Result,Syphilis_Status,CTX,Other_Meds,ARV_Drugs,Fluconazole,Tests_and_Investigations,DSD_Model,SID,MUAC_SCORE,Weight,Height,Weight_Score,Height_Score,BMI_Score,Blood_pressure___Systolic,Blood_pressure___Diastolic,Blood_Sugar,Temperature,Tobacco_Use,CD4_Count,Clinical_Stage,Viral_Load")] Visit visit)
         {
             if (ModelState.IsValid)
             {

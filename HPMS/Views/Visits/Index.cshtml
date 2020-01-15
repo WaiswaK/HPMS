@@ -123,6 +123,9 @@
             @Html.DisplayNameFor(model => model.CD4_Count)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Viral_Load)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Clinical_Stage)
         </th>
         <th></th>
@@ -242,12 +245,15 @@
             @Html.DisplayFor(modelItem => item.CD4_Count)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Viral_Load)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Clinical_Stage)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Visit_ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Visit_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Visit_ID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Visit_ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Visit_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Visit_ID })
         </td>
     </tr>
 }
