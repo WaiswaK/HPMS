@@ -18,5 +18,6 @@ namespace HPMS.DataModels
         public decimal? Blood_pressure___Diastolic { get; set; }
         public decimal? Blood_Sugar { get; set; }
         public decimal? CD4_Count { get; set; }
+        public decimal? Viral_Load { get; set; }
     }
 }

@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using HPMS.DataModels;
 using HPMS.Models;
 
 namespace HPMS.Controllers
@@ -15,119 +16,61 @@ namespace HPMS.Controllers
     public class VisitsAPIController : ApiController
     {
         private Models.HPMS db = new Models.HPMS();
-
-        // GET: api/VisitsAPI
-        public IQueryable<Visit> GetVisits()
+        /*
+        // POST api/<controller>
+        public HttpResponseMessage Post([FromBody] UserData userdata)
         {
-            return db.Visits;
-        }
 
-        // GET: api/VisitsAPI/5
-        [ResponseType(typeof(Visit))]
-        public IHttpActionResult GetVisit(string id)
-        {
-            Visit visit = db.Visits.Find(id);
-            if (visit == null)
-            {
-                return NotFound();
-            }
 
-            return Ok(visit);
-        }
 
-        // PUT: api/VisitsAPI/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutVisit(string id, Visit visit)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
 
-            if (id != visit.Visit_ID)
-            {
-                return BadRequest();
-            }
 
-            db.Entry(visit).State = EntityState.Modified;
-
+            List<Disease> diseases = DiseaseProcess.FinalDiseases(responsedata.Selected_symptoms);
+            List<Pest> pests = PestProcess.FinalPests(responsedata.Selected_symptoms);
+            List<Result> final = new List<Result>();
             try
             {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!VisitExists(id))
+                foreach (var disease in diseases)
                 {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
+                    Result dis = new Result()
+                    {
+                        Item = "Disease",
+                        Name = disease.Name,
+                        Solutions = ControlProcess.DiseaseControls(disease.D_ID)
+                    };
+                    final.Add(dis);
                 }
             }
-
-            return StatusCode(HttpStatusCode.NoContent);
-        }
-
-        // POST: api/VisitsAPI
-        [ResponseType(typeof(Visit))]
-        public IHttpActionResult PostVisit(Visit visit)
-        {
-            if (!ModelState.IsValid)
+            catch
             {
-                return BadRequest(ModelState);
+
             }
-
-            db.Visits.Add(visit);
-
             try
             {
-                db.SaveChanges();
-            }
-            catch (DbUpdateException)
-            {
-                if (VisitExists(visit.Visit_ID))
+                foreach (var pest in pests)
                 {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
+                    Result pes = new Result()
+                    {
+                        Item = "Pest",
+                        Name = pest.Name,
+                        Solutions = ControlProcess.PestControls(pest.P_ID)
+                    };
+                    final.Add(pes);
                 }
             }
-
-            return CreatedAtRoute("DefaultApi", new { id = visit.Visit_ID }, visit);
-        }
-
-        // DELETE: api/VisitsAPI/5
-        [ResponseType(typeof(Visit))]
-        public IHttpActionResult DeleteVisit(string id)
-        {
-            Visit visit = db.Visits.Find(id);
-            if (visit == null)
+            catch
             {
-                return NotFound();
+
             }
-
-            db.Visits.Remove(visit);
-            db.SaveChanges();
-
-            return Ok(visit);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
+            if (diseases == null && pests == null)
             {
-                db.Dispose();
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "No Diagnosis found");
             }
-            base.Dispose(disposing);
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, final);
+            }
         }
-
-        private bool VisitExists(string id)
-        {
-            return db.Visits.Count(e => e.Visit_ID == id) > 0;
-        }
+        */
     }
 }

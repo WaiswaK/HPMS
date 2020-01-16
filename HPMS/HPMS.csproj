@@ -202,6 +202,7 @@
     <Compile Include="Controllers\VisitsController.cs" />
     <Compile Include="DataModels\ResultData.cs" />
     <Compile Include="DataModels\UserData.cs" />
+    <Compile Include="DataModels\VisitDataProcess.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
