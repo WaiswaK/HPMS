@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+//using System.Web.Mvc;
 
 namespace HPMS.Models
 {
@@ -79,7 +80,10 @@ namespace HPMS.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
-        public string RoleName { get; set; }
+        //public string RoleName { get; set; }
+        [Required(ErrorMessage = "Please select a role")]
+        //public string RoleName { get; set; }
+        //public IEnumerable<SelectListItem> RoleList { get; set; } //Add ended here
         public string NIN { get; set; }
     }
 

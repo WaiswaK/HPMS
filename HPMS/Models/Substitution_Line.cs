@@ -1,10 +1,8 @@
 namespace HPMS.Models
 {
-    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
     [Table("Substitution Line")]
     public partial class Substitution_Line

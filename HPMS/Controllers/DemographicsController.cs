@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using HPMS.Models;
 
@@ -17,7 +13,8 @@ namespace HPMS.Controllers
         // GET: Demographics
         public ActionResult Index()
         {
-            return View(db.Demographics.ToList());
+            var demographics = db.Demographics.Include(d => d.AspNetUser);
+            return View(demographics.ToList());
         }
 
         // GET: Demographics/Details/5
@@ -38,6 +35,7 @@ namespace HPMS.Controllers
         // GET: Demographics/Create
         public ActionResult Create()
         {
+            ViewBag.Id = new SelectList(db.AspNetUsers, "Id", "UserName");
             return View();
         }
 
@@ -46,7 +44,7 @@ namespace HPMS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "NIN,Given_Name,Midle_Name,Family_Name,Gender,Date_of_Birth,Address,Phone_Number,District,Division,Parish,Village")] Demographic demographic)
+        public ActionResult Create([Bind(Include = "NIN,Given_Name,Midle_Name,Family_Name,Gender,Date_of_Birth,Address,Phone_Number,District,Division,Parish,Village,Id")] Demographic demographic)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +53,7 @@ namespace HPMS.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.Id = new SelectList(db.AspNetUsers, "Id", "UserName", demographic.Id);
             return View(demographic);
         }
 
@@ -70,6 +69,7 @@ namespace HPMS.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Id = new SelectList(db.AspNetUsers, "Id", "UserName", demographic.Id);
             return View(demographic);
         }
 
@@ -78,7 +78,7 @@ namespace HPMS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "NIN,Given_Name,Midle_Name,Family_Name,Gender,Date_of_Birth,Address,Phone_Number,District,Division,Parish,Village")] Demographic demographic)
+        public ActionResult Edit([Bind(Include = "NIN,Given_Name,Midle_Name,Family_Name,Gender,Date_of_Birth,Address,Phone_Number,District,Division,Parish,Village,Id")] Demographic demographic)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +86,7 @@ namespace HPMS.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.Id = new SelectList(db.AspNetUsers, "Id", "UserName", demographic.Id);
             return View(demographic);
         }
 
