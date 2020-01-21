@@ -1,65 +1,28 @@
-﻿using System.Web.Http;
+﻿using HPMS.DataModels;
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
 
 namespace HPMS.Controllers
 {
     public class VisitsAPIController : ApiController
     {
         private Models.HPMS db = new Models.HPMS();
-        /*
-        // POST api/<controller>
+        
+        //POST api/<controller>
         public HttpResponseMessage Post([FromBody] UserData userdata)
         {
-
-
-
-
-
-            List<Disease> diseases = DiseaseProcess.FinalDiseases(responsedata.Selected_symptoms);
-            List<Pest> pests = PestProcess.FinalPests(responsedata.Selected_symptoms);
-            List<Result> final = new List<Result>();
-            try
+            List<ResultData> _results = DataProcess.Patient_Visits(userdata.UserName);
+            
+            if (_results == null)
             {
-                foreach (var disease in diseases)
-                {
-                    Result dis = new Result()
-                    {
-                        Item = "Disease",
-                        Name = disease.Name,
-                        Solutions = ControlProcess.DiseaseControls(disease.D_ID)
-                    };
-                    final.Add(dis);
-                }
-            }
-            catch
-            {
-
-            }
-            try
-            {
-                foreach (var pest in pests)
-                {
-                    Result pes = new Result()
-                    {
-                        Item = "Pest",
-                        Name = pest.Name,
-                        Solutions = ControlProcess.PestControls(pest.P_ID)
-                    };
-                    final.Add(pes);
-                }
-            }
-            catch
-            {
-
-            }
-            if (diseases == null && pests == null)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "No Diagnosis found");
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "No Data");
             }
             else
             {
-                return Request.CreateResponse(HttpStatusCode.OK, final);
+                return Request.CreateResponse(HttpStatusCode.OK, _results);
             }
         }
-        */
     }
 }

@@ -48,8 +48,16 @@ namespace HPMS.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Demographics.Add(demographic);
-                db.SaveChanges();
+                //Check the exisitence of user ID in other records
+                if (DataModels.DataProcess.Exists(demographic.Id))
+                {
+
+                }
+                else
+                {
+                    db.Demographics.Add(demographic);
+                    db.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
 

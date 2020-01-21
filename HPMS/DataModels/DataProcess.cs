@@ -3,13 +3,14 @@ using System.Linq;
 
 namespace HPMS.DataModels
 {
-    public class VisitDataProcess
+    public class DataProcess
     {
         private static Models.HPMS db = new Models.HPMS();
-        public static List<ResultData> Patient_Visits(string _nin)
+        #region Patient Processing
+        public static List<ResultData> Patient_Visits(string _username)
         {
             List<ResultData> _patient_visits = new List<ResultData>();
-            string PID = GetPID(_nin);
+            string PID = GetPID(GetNIN(GetID(_username)));
             try
             {
                 var query = db.Visits.Where(c => c.PID.Equals(PID)).ToList();
@@ -52,5 +53,53 @@ namespace HPMS.DataModels
             }
             return PID;
         }
+        private static string GetID(string _username)
+        {
+            string id = string.Empty;
+            try
+            {
+                var query = db.AspNetUsers.Where(c => c.UserName == _username).Single();
+                id = query.Id;
+            }
+            catch
+            {
+
+            }
+
+            return id;
+        }
+        private static string GetNIN(string _id)
+        {
+            string NIN = string.Empty;
+            try
+            {
+                var query = db.Demographics.Where(c => c.Id == _id).Single();
+                NIN = query.NIN;
+            }
+            catch
+            {
+
+            }
+            return NIN;
+        }
+        #endregion
+        #region Demographic Processing
+        public static bool Exists(string _id)
+        {
+            bool found = false;
+            try
+            {
+                var query = db.Demographics.Where(c => c.Id == _id).ToList();
+                if (query.Count == 0)
+                    found = false;
+                else found = true;
+            }
+            catch
+            {
+
+            }
+            return found;
+        }
+        #endregion
     }
 }
