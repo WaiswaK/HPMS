@@ -16,3 +16,4 @@ D:\Projects\Mobile Apps\HPMS\App\App\obj\Debug\netstandard2.0\XamlC.stamp
 D:\Projects\Mobile Apps\HPMS\App\App\obj\Debug\netstandard2.0\App.dll
 D:\Projects\Mobile Apps\HPMS\App\App\obj\Debug\netstandard2.0\App.pdb
 D:\Projects\Mobile Apps\HPMS\App\App\obj\Debug\netstandard2.0\Views\Settings.xaml.g.cs
+D:\Projects\Mobile Apps\HPMS\App\App\obj\Debug\netstandard2.0\Views\Home.xaml.g.cs

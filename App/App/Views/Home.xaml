@@ -2,11 +2,36 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App.Views.Home">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+
+    <Grid x:Name="LayoutRoot" Padding="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ScrollView Grid.Row="1">
+            <StackLayout>
+                <Image Source="{Binding Profile_photo}" />
+                
+                <Label Text="Full Names:" FontSize="Large" FontAttributes="Bold"/>
+                <Label Text="{Binding Fullnames}" FontSize="Medium" FontAttributes="Italic"/>
+
+                <Label Text="HIV Stage:" FontSize="Large" FontAttributes="Bold"/>
+                <Label Text="{Binding WHO_HIV_Stage}" FontSize="Medium" FontAttributes="Italic"/>
+
+                <Label Text="Current Drugs:" FontSize="Large" FontAttributes="Bold"/>
+                <Label Text="{Binding Current_Drugs}" FontSize="Medium" FontAttributes="Italic"/>
+
+                <Label Text="COHORT:" FontSize="Large" FontAttributes="Bold"/>
+                <Label Text="{Binding ART_CARE_COHORT}" FontSize="Medium" FontAttributes="Italic"/>
+
+                <Label Text="TB Regimen:" FontSize="Large" FontAttributes="Bold"/>
+                <Label Text="{Binding TB_Regimen }" FontSize="Medium" FontAttributes="Italic"/>
+
+                <Label Text="Next Visit Date:" FontSize="Large" FontAttributes="Bold"/>
+                <Label Text="{Binding Date_Next_Visit}" FontSize="Medium" FontAttributes="Italic"/>
+
+            </StackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>

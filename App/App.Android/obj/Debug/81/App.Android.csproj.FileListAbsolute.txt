@@ -116,6 +116,7 @@ D:\Projects\Mobile Apps\HPMS\App\App.Android\obj\Debug\81\android\assets\System.
 D:\Projects\Mobile Apps\HPMS\App\App.Android\obj\Debug\81\android\assets\System.Xml.pdb
 D:\Projects\Mobile Apps\HPMS\App\App.Android\obj\Debug\81\android\assets\Xamarin.Forms.Core.pdb
 D:\Projects\Mobile Apps\HPMS\App\App.Android\obj\Debug\81\android\assets\Xamarin.Forms.Xaml.pdb
+D:\Projects\Mobile Apps\HPMS\App\App.Android\obj\Debug\81\res\drawable\about.png
 D:\Projects\Mobile Apps\HPMS\App\App\bin\Debug\netstandard2.0\App.dll
 D:\Projects\Mobile Apps\HPMS\App\App.Android\bin\Debug\App.dll.mdb
 D:\Projects\Mobile Apps\HPMS\App\App.Android\obj\Debug\81\linksrc\App.dll.mdb
