@@ -18,7 +18,6 @@ namespace HPMS.Models
         public virtual DbSet<Education> Educations { get; set; }
         public virtual DbSet<History> Histories { get; set; }
         public virtual DbSet<Patient> Patients { get; set; }
-        public virtual DbSet<Reason> Reasons { get; set; }
         public virtual DbSet<Staff> Staffs { get; set; }
         public virtual DbSet<Substitution> Substitutions { get; set; }
         public virtual DbSet<Substitution_Line> Substitution_Lines { get; set; }
@@ -54,16 +53,6 @@ namespace HPMS.Models
                 .HasMany(e => e.Staffs)
                 .WithRequired(e => e.Demographic)
                 .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Reason>()
-                .HasMany(e => e.Substitutions)
-                .WithOptional(e => e.Reason)
-                .HasForeignKey(e => e.Reason_ID);
-
-            modelBuilder.Entity<Reason>()
-                .HasMany(e => e.Substitutions1)
-                .WithOptional(e => e.Reason1)
-                .HasForeignKey(e => e.Reason_ID);
 
             modelBuilder.Entity<Staff>()
                 .HasMany(e => e.Educations)
@@ -117,6 +106,10 @@ namespace HPMS.Models
 
             modelBuilder.Entity<Visit>()
                 .Property(e => e.CD4_Count)
+                .HasPrecision(18, 0);
+
+            modelBuilder.Entity<Visit>()
+                .Property(e => e.Viral_Load)
                 .HasPrecision(18, 0);
         }
     }

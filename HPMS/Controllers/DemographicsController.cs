@@ -1,6 +1,8 @@
 ﻿using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using HPMS.Models;
 
@@ -44,7 +46,7 @@ namespace HPMS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "NIN,Given_Name,Midle_Name,Family_Name,Gender,Date_of_Birth,Address,Phone_Number,District,Division,Parish,Village,Id")] Demographic demographic)
+        public ActionResult Create([Bind(Include = "NIN,Given_Name,Midle_Name,Family_Name,Gender,Date_of_Birth,Address,Phone_Number,District,Division,Parish,Village,Id,ImagePath")] Demographic demographic, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +57,27 @@ namespace HPMS.Controllers
                 }
                 else
                 {
+                    if (upload != null && upload.ContentLength > 0)
+                    {
+                        try
+                        {
+                            string ext = Path.GetExtension(upload.FileName).ToLower();
+                            if (ext == ".jpg" || ext == ".png" || ext == ".jpeg")
+                            {
+                                var uploadpath = Path.Combine(Server.MapPath("~/Images/People"),
+                                   demographic.ImagePath + ".jpg");
+                                var path = @"~/Images/People" + @"/" + demographic.Id + ".jpg";
+                                demographic.ImagePath = path;
+                                upload.SaveAs(uploadpath);
+                            }
+                        }
+                        catch(System.Exception ex)
+                        {
+                            string x = ex.ToString();
+                            int xy = 0;
+                        }
+                        
+                    }
                     db.Demographics.Add(demographic);
                     db.SaveChanges();
                 }
@@ -86,10 +109,31 @@ namespace HPMS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "NIN,Given_Name,Midle_Name,Family_Name,Gender,Date_of_Birth,Address,Phone_Number,District,Division,Parish,Village,Id")] Demographic demographic)
+        public ActionResult Edit([Bind(Include = "NIN,Given_Name,Midle_Name,Family_Name,Gender,Date_of_Birth,Address,Phone_Number,District,Division,Parish,Village,Id,ImagePath")] Demographic demographic, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    try
+                    {
+                        string ext = Path.GetExtension(upload.FileName).ToLower();
+                        if (ext == ".jpg" || ext == ".png" || ext == ".jpeg")
+                        {
+                            var uploadpath = Path.Combine(Server.MapPath("~/Images/People"),
+                               demographic.ImagePath + ".jpg");
+                            var path = @"~/Images/People" + @"/" + demographic.Id + ".jpg";
+                            demographic.ImagePath = path;
+                            upload.SaveAs(uploadpath);
+                        }
+                    }
+                    catch(System.Exception ex)
+                    {
+                        string x = ex.ToString();
+                        int xy = 0;
+                    }
+                    
+                }
                 db.Entry(demographic).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

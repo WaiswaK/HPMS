@@ -46,6 +46,31 @@ namespace HPMS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "SID,NIN,Job_Description")] Staff staff)
         {
+            var query = db.Staffs.Count() + 1;
+            string temp = "ST-" + query;
+            bool exist = false;
+
+            try
+            {
+                var search = db.Staffs.Where(c => c.SID == temp).Single();
+                exist = true;
+            }
+            catch
+            {
+                exist = false;
+
+            }
+            if (exist)
+            {
+                var all = db.Staffs.ToList();
+                var _staff = all.Last();
+                _staff.SID = "ST-" + DataModels.DataProcess.NextNumber(_staff.SID);
+            }
+            else
+            {
+               staff.SID = temp;
+            }
+
             if (ModelState.IsValid)
             {
                 db.Staffs.Add(staff);

@@ -17,4 +17,16 @@ namespace HPMS.DataModels
         public decimal? CD4_Count { get; set; }
         public decimal? Viral_Load { get; set; }
     }
+
+    public class DashData
+    {
+        public string Current_Drugs { get; set; } //ARV Drugs in visit last
+        public DateTime? Date_Next_Visit { get; set; } // in visit last
+        public string WHO_HIV_Stage { get; set; } // visit last
+        public string ART_CARE_COHORT { get; set; } //Under Cohort table
+        public string TB_Regimen { get; set; } // Under substitutions
+        public string Profile_photo { get; set; } //Under Demographic
+        public string Username { get; set; } // direct from data
+        public string Fullnames { get; set; } // from demographic
+    }
 }

@@ -46,6 +46,31 @@ namespace HPMS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "PID,NIN,Next_of_Kin,Special_Category,Care_Entry_Point")] Patient patient)
         {
+            var query = db.Patients.Count() + 1;
+            string temp = "P-" + query;
+            bool exist = false;
+
+            try
+            {
+                var search = db.Patients.Where(c => c.PID == temp).Single();
+                exist = true;
+            }
+            catch
+            {
+                exist = false;
+
+            }
+            if (exist)
+            {
+                var all = db.Patients.ToList();
+                var _patient = all.Last();
+                _patient.PID = "P-" + DataModels.DataProcess.NextNumber(_patient.PID);
+            }
+            else
+            {
+                patient.PID = temp;
+            }
+
             if (ModelState.IsValid)
             {
                 db.Patients.Add(patient);

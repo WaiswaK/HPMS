@@ -187,18 +187,18 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\COHORTsController.cs" />
+    <Compile Include="Controllers\DashBoardApiController.cs" />
     <Compile Include="Controllers\DemographicsController.cs" />
     <Compile Include="Controllers\EducationsController.cs" />
     <Compile Include="Controllers\HistoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
-    <Compile Include="Controllers\ReasonsController.cs" />
     <Compile Include="Controllers\StaffsController.cs" />
     <Compile Include="Controllers\SubstitutionsController.cs" />
     <Compile Include="Controllers\Substitution_LineController.cs" />
     <Compile Include="Controllers\UserAccountController.cs" />
-    <Compile Include="Controllers\VisitsAPIController.cs" />
+    <Compile Include="Controllers\VisitsApiController.cs" />
     <Compile Include="Controllers\VisitsController.cs" />
     <Compile Include="DataModels\ResultData.cs" />
     <Compile Include="DataModels\UserData.cs" />
@@ -215,12 +215,12 @@
     <Compile Include="Models\COHORT.cs" />
     <Compile Include="Models\Demographic.cs" />
     <Compile Include="Models\Education.cs" />
+    <Compile Include="Models\Selection.cs" />
     <Compile Include="Models\History.cs" />
     <Compile Include="Models\HPMS.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Patient.cs" />
-    <Compile Include="Models\Reason.cs" />
     <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\Substitution.cs" />
     <Compile Include="Models\Substitution_Line.cs" />
@@ -313,21 +313,11 @@
     <Content Include="Views\Patients\Details.cshtml" />
     <Content Include="Views\Patients\Edit.cshtml" />
     <Content Include="Views\Patients\Index.cshtml" />
-    <Content Include="Views\Reasons\Create.cshtml" />
-    <Content Include="Views\Reasons\Delete.cshtml" />
-    <Content Include="Views\Reasons\Details.cshtml" />
-    <Content Include="Views\Reasons\Edit.cshtml" />
-    <Content Include="Views\Reasons\Index.cshtml" />
     <Content Include="Views\Staffs\Create.cshtml" />
     <Content Include="Views\Staffs\Delete.cshtml" />
     <Content Include="Views\Staffs\Details.cshtml" />
     <Content Include="Views\Staffs\Edit.cshtml" />
     <Content Include="Views\Staffs\Index.cshtml" />
-    <Content Include="Views\Substitutions\Create.cshtml" />
-    <Content Include="Views\Substitutions\Delete.cshtml" />
-    <Content Include="Views\Substitutions\Details.cshtml" />
-    <Content Include="Views\Substitutions\Edit.cshtml" />
-    <Content Include="Views\Substitutions\Index.cshtml" />
     <Content Include="Views\Substitution_Line\Create.cshtml" />
     <Content Include="Views\Substitution_Line\Delete.cshtml" />
     <Content Include="Views\Substitution_Line\Details.cshtml" />
@@ -338,9 +328,15 @@
     <Content Include="Views\Visits\Details.cshtml" />
     <Content Include="Views\Visits\Edit.cshtml" />
     <Content Include="Views\Visits\Index.cshtml" />
+    <Content Include="Views\Substitutions\Create.cshtml" />
+    <Content Include="Views\Substitutions\Delete.cshtml" />
+    <Content Include="Views\Substitutions\Details.cshtml" />
+    <Content Include="Views\Substitutions\Edit.cshtml" />
+    <Content Include="Views\Substitutions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\People\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

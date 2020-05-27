@@ -6,10 +6,9 @@ using System.Web.Http;
 
 namespace HPMS.Controllers
 {
-    public class VisitsAPIController : ApiController
+    public class VisitsApiController : ApiController
     {
-        private Models.HPMS db = new Models.HPMS();
-        
+     
         //POST api/<controller>
         public HttpResponseMessage Post([FromBody] UserData userdata)
         {

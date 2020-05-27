@@ -1,6 +1,18 @@
 App
 System.Runtime
 FormsViewGroup
+Microcharts
+Microcharts.Droid
+Microcharts.Forms
+Newtonsoft.Json
+Plugin.Connectivity.Abstractions
+Plugin.Connectivity
+SkiaSharp
+SkiaSharp.Views.Android
+SkiaSharp.Views.Forms
+SQLite.Net.Async
+SQLite.Net
+SQLite.Net.Platform.XamarinAndroid
 Xamarin.Android.Arch.Core.Common
 Xamarin.Android.Arch.Lifecycle.Common
 Xamarin.Android.Arch.Lifecycle.Runtime
@@ -25,3 +37,5 @@ Xamarin.Forms.Platform.Android
 Xamarin.Forms.Platform
 Xamarin.Forms.Xaml
 netstandard
+System.Collections
+System.Reflection.Extensions

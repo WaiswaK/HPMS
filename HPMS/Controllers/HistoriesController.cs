@@ -46,6 +46,30 @@ namespace HPMS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "HID,SID,Workpace,Duration")] History history)
         {
+            var query = db.Histories.Count() + 1;
+            string temp = "HIS-" + query;
+            bool exist = false;
+
+            try
+            {
+                var search = db.Histories.Where(c => c.HID == temp).Single();
+                exist = true;
+            }
+            catch
+            {
+                exist = false;
+
+            }
+            if (exist)
+            {
+                var all = db.Histories.ToList();
+                var hist = all.Last();
+                hist.HID = "HIS-" + DataModels.DataProcess.NextNumber(hist.HID);
+            }
+            else
+            {
+                history.HID = temp;
+            }
             if (ModelState.IsValid)
             {
                 db.Histories.Add(history);

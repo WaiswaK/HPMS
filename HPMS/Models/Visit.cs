@@ -19,14 +19,17 @@ namespace HPMS.Models
 
         [Column("Visit Date", TypeName = "date")]
         [Display(Name = "Visit Date")]
+        [DataType(DataType.Date)]
         public DateTime? Visit_Date { get; set; }
 
         [Column("Date Next Visit", TypeName = "date")]
         [Display(Name = "Date Next Visit")]
+        [DataType(DataType.Date)]
         public DateTime? Date_Next_Visit { get; set; }
 
         [Column("Date of Birth", TypeName = "date")]
         [Display(Name = "Date of Birth")]
+        [DataType(DataType.Date)]
         public DateTime? Date_of_Birth { get; set; }
 
         [Column("Nutrition Assessment")]

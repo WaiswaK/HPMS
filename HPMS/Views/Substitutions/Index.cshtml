@@ -12,10 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Reason.Reason1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Reason1.Reason1)
+            @Html.DisplayNameFor(model => model.Patient.NIN)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Substitution_Line.Line_ID)
@@ -24,7 +21,7 @@
             @Html.DisplayNameFor(model => model.Substitution_Date)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PID)
+            @Html.DisplayNameFor(model => model.Reason)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Regimen)
@@ -32,32 +29,30 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Reason.Reason1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Reason1.Reason1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Substitution_Line.Line_ID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Substitution_Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Regimen)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Substution_ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Substution_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Substution_ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patient.NIN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Substitution_Line.Line_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Substitution_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reason)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Regimen)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Substution_ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Substution_ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Substution_ID })
+            </td>
+        </tr>
+    }
 
 </table>

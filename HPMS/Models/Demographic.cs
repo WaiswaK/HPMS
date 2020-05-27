@@ -19,6 +19,10 @@ namespace HPMS.Models
         [StringLength(50)]
         public string NIN { get; set; }
 
+        [Column(TypeName = "text")]
+        [Display(Name = "Profile picture")]
+        public string ImagePath { get; set; }
+
         [Column("Given Name")]
         [Display(Name = "Given Name")]
         [Required]
@@ -38,6 +42,7 @@ namespace HPMS.Models
 
         [Column("Date of Birth", TypeName = "date")]
         [Display(Name = "Date of Birth")]
+        [DataType(DataType.Date)]
         public DateTime? Date_of_Birth { get; set; }
 
         public string Address { get; set; }

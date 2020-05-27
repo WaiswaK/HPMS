@@ -46,6 +46,30 @@ namespace HPMS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "EID,SID,School,Award")] Education education)
         {
+            var query = db.Educations.Count() + 1;
+            string temp = "EDU-" + query;
+            bool exist = false;
+            try
+            {
+                var search = db.Educations.Where(c => c.EID == temp).Single();
+                exist = true;
+            }
+            catch
+            {
+                exist = false;
+
+            }
+            if (exist)
+            {
+                var all = db.Educations.ToList();
+                var edu = all.Last();
+                education.EID = "EDU-" + +DataModels.DataProcess.NextNumber(edu.EID);
+            }
+            else
+            {
+                education.EID = temp;
+            }
+
             if (ModelState.IsValid)
             {
                 db.Educations.Add(education);

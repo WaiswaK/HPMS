@@ -2,6 +2,9 @@
 
 @{
     ViewBag.Title = "Details";
+    var imagePath = @Model.ImagePath;
+    if (imagePath == null)
+        imagePath = @"~/Images/Symptoms.jpg";
 }
 
 <h2>Details</h2>
@@ -10,6 +13,10 @@
     <h4>Demographic</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dd>
+            <img src="@Url.Content(imagePath)" alt="Image" />
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Given_Name)
         </dt>

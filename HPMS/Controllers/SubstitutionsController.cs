@@ -1,6 +1,10 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using HPMS.Models;
 
@@ -13,7 +17,7 @@ namespace HPMS.Controllers
         // GET: Substitutions
         public ActionResult Index()
         {
-            var substitutions = db.Substitutions.Include(s => s.Reason1).Include(s => s.Reason1).Include(s => s.Substitution_Line);
+            var substitutions = db.Substitutions.Include(s => s.Patient).Include(s => s.Substitution_Line);
             return View(substitutions.ToList());
         }
 
@@ -35,8 +39,7 @@ namespace HPMS.Controllers
         // GET: Substitutions/Create
         public ActionResult Create()
         {
-            ViewBag.Reason_ID = new SelectList(db.Reasons, "Reson_ID", "Reason1");
-            ViewBag.Reason_ID = new SelectList(db.Reasons, "Reson_ID", "Reason1");
+            ViewBag.PID = new SelectList(db.Patients, "PID", "NIN");
             ViewBag.Line_ID = new SelectList(db.Substitution_Lines, "Line_ID", "Line_ID");
             return View();
         }
@@ -46,8 +49,32 @@ namespace HPMS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Substution_ID,Substitution_Date,PID,Reason_ID,Line_ID,Regimen")] Substitution substitution)
+        public ActionResult Create([Bind(Include = "Substution_ID,Substitution_Date,PID,Reason,Line_ID,Regimen")] Substitution substitution)
         {
+            var query = db.Substitutions.Count() + 1;
+            string temp = "Sub-" + query;
+            bool exist = false;
+
+            try
+            {
+                var search = db.Substitutions.Where(c => c.Substution_ID == temp).Single();
+                exist = true;
+            }
+            catch
+            {
+                exist = false;
+
+            }
+            if (exist)
+            {
+                var all = db.Substitutions.ToList();
+                var _substitution = all.Last();
+                _substitution.Substution_ID = "Sub-" + DataModels.DataProcess.NextNumber(_substitution.Substution_ID);
+            }
+            else
+            {
+                substitution.Substution_ID = temp;
+            }
             if (ModelState.IsValid)
             {
                 db.Substitutions.Add(substitution);
@@ -55,8 +82,7 @@ namespace HPMS.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Reason_ID = new SelectList(db.Reasons, "Reson_ID", "Reason1", substitution.Reason_ID);
-            ViewBag.Reason_ID = new SelectList(db.Reasons, "Reson_ID", "Reason1", substitution.Reason_ID);
+            ViewBag.PID = new SelectList(db.Patients, "PID", "NIN", substitution.PID);
             ViewBag.Line_ID = new SelectList(db.Substitution_Lines, "Line_ID", "Line_ID", substitution.Line_ID);
             return View(substitution);
         }
@@ -73,8 +99,7 @@ namespace HPMS.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Reason_ID = new SelectList(db.Reasons, "Reson_ID", "Reason1", substitution.Reason_ID);
-            ViewBag.Reason_ID = new SelectList(db.Reasons, "Reson_ID", "Reason1", substitution.Reason_ID);
+            ViewBag.PID = new SelectList(db.Patients, "PID", "NIN", substitution.PID);
             ViewBag.Line_ID = new SelectList(db.Substitution_Lines, "Line_ID", "Line_ID", substitution.Line_ID);
             return View(substitution);
         }
@@ -84,7 +109,7 @@ namespace HPMS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Substution_ID,Substitution_Date,PID,Reason_ID,Line_ID,Regimen")] Substitution substitution)
+        public ActionResult Edit([Bind(Include = "Substution_ID,Substitution_Date,PID,Reason,Line_ID,Regimen")] Substitution substitution)
         {
             if (ModelState.IsValid)
             {
@@ -92,8 +117,7 @@ namespace HPMS.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Reason_ID = new SelectList(db.Reasons, "Reson_ID", "Reason1", substitution.Reason_ID);
-            ViewBag.Reason_ID = new SelectList(db.Reasons, "Reson_ID", "Reason1", substitution.Reason_ID);
+            ViewBag.PID = new SelectList(db.Patients, "PID", "NIN", substitution.PID);
             ViewBag.Line_ID = new SelectList(db.Substitution_Lines, "Line_ID", "Line_ID", substitution.Line_ID);
             return View(substitution);
         }

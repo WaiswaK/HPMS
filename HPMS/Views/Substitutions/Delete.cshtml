@@ -12,19 +12,11 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Reason.Reason1)
+            @Html.DisplayNameFor(model => model.Patient.NIN)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Reason.Reason1)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Reason1.Reason1)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Reason1.Reason1)
+            @Html.DisplayFor(model => model.Patient.NIN)
         </dd>
 
         <dt>
@@ -44,11 +36,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PID)
+            @Html.DisplayNameFor(model => model.Reason)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.PID)
+            @Html.DisplayFor(model => model.Reason)
         </dd>
 
         <dt>
@@ -61,7 +53,8 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

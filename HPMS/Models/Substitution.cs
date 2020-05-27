@@ -15,26 +15,25 @@ namespace HPMS.Models
 
         [Column("Substitution Date", TypeName = "date")]
         [Display(Name = "Substitution Date")]
+        [DataType(DataType.Date)]
         public DateTime? Substitution_Date { get; set; }
 
         [StringLength(50)]
         [Display(Name = "Patient")]
         public string PID { get; set; }
 
-        [Column("Reason ID")]
         [Display(Name = "Reason")]
-        public int? Reason_ID { get; set; }
+        public string Reason { get; set; }
 
         [Column("Line ID")]
         [Display(Name = "Line")]
         [StringLength(50)]
         public string Line_ID { get; set; }
 
+        [Display(Name = "Regimen")]
         public string Regimen { get; set; }
 
-        public virtual Reason Reason { get; set; }
-
-        public virtual Reason Reason1 { get; set; }
+        public virtual Patient Patient { get; set; }
 
         public virtual Substitution_Line Substitution_Line { get; set; }
     }

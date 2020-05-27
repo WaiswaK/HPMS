@@ -46,6 +46,30 @@ namespace HPMS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Visit_ID,PID,Visit_Date,Date_Next_Visit,Date_of_Birth,Nutrition_Assessment,Pregnancy_Status,Gestation,FP,FP_Method,CaCx_Screening,TB_Status,TPT,TPT_Effects,Diagnosis,ART_Effects,Hep_Test,Hep_Result,Syphilis_Status,CTX,Other_Meds,ARV_Drugs,Fluconazole,Tests_and_Investigations,DSD_Model,SID,MUAC_SCORE,Weight,Height,Weight_Score,Height_Score,BMI_Score,Blood_pressure___Systolic,Blood_pressure___Diastolic,Blood_Sugar,Temperature,Tobacco_Use,CD4_Count,Clinical_Stage,Viral_Load")] Visit visit)
         {
+            var query = db.Visits.Count() + 1;
+            string temp = "V-" + query;
+            bool exist = false;
+
+            try
+            {
+                var search = db.Visits.Where(c => c.Visit_ID == temp).Single();
+                exist = true;
+            }
+            catch
+            {
+                exist = false;
+
+            }
+            if (exist)
+            {
+                var all = db.Visits.ToList();
+                var dis = all.Last();
+                visit.Visit_ID = "V-" + DataModels.DataProcess.NextNumber(dis.Visit_ID);
+            }
+            else
+            {
+                visit.Visit_ID = temp;
+            }
             if (ModelState.IsValid)
             {
                 db.Visits.Add(visit);
