@@ -31,4 +31,16 @@ namespace HPMS.Models
         HIV_Drug_resistance,
         Other_reasons
     }
+
+    public enum PosNeg
+    {
+        Positive,
+        Negative
+    }
+
+    public enum Pregnancy
+    {
+        Pregnant,
+        Not_pregnant
+    }
 }

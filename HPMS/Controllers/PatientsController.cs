@@ -11,6 +11,7 @@ namespace HPMS.Controllers
         private Models.HPMS db = new Models.HPMS();
 
         // GET: Patients
+        [Authorize]
         public ActionResult Index()
         {
             var patients = db.Patients.Include(p => p.Demographic);

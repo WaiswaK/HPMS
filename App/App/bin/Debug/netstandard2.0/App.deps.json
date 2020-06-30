@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "5244bd5aae23bc5f857d07d0910bec1da8416dff"
+    "signature": "24023f5a55816e6ca1c7d3cff12fc4a3d8447627"
   },
   "compilationOptions": {},
   "targets": {
@@ -15,6 +15,7 @@
           "Newtonsoft.Json": "12.0.3",
           "SQLite.Net-PCL": "3.1.1",
           "SQLite.Net.Async-PCL": "3.1.1",
+          "SkiaSharp.Views.Forms": "1.60.0",
           "Xam.Plugin.Connectivity": "3.2.0",
           "Xamarin.Forms": "3.1.0.697729"
         },
@@ -24,7 +25,7 @@
       },
       "Microcharts/0.7.1": {
         "dependencies": {
-          "SkiaSharp": "1.59.1",
+          "SkiaSharp": "1.60.0",
           "System.ValueTuple": "4.4.0"
         },
         "runtime": {
@@ -36,7 +37,7 @@
       },
       "Microcharts.Forms/0.7.1": {
         "dependencies": {
-          "SkiaSharp.Views.Forms": "1.59.1.1",
+          "SkiaSharp.Views.Forms": "1.60.0",
           "System.ValueTuple": "4.4.0",
           "Xamarin.Forms": "3.1.0.697729"
         },
@@ -61,23 +62,23 @@
           }
         }
       },
-      "SkiaSharp/1.59.1": {
+      "SkiaSharp/1.60.0": {
         "runtime": {
           "lib/netstandard1.3/SkiaSharp.dll": {
-            "assemblyVersion": "1.59.0.0",
-            "fileVersion": "1.59.1.0"
+            "assemblyVersion": "1.60.0.0",
+            "fileVersion": "1.60.0.0"
           }
         }
       },
-      "SkiaSharp.Views.Forms/1.59.1.1": {
+      "SkiaSharp.Views.Forms/1.60.0": {
         "dependencies": {
-          "SkiaSharp": "1.59.1",
+          "SkiaSharp": "1.60.0",
           "Xamarin.Forms": "3.1.0.697729"
         },
         "runtime": {
           "lib/netstandard1.3/SkiaSharp.Views.Forms.dll": {
-            "assemblyVersion": "1.59.0.0",
-            "fileVersion": "1.59.1.0"
+            "assemblyVersion": "1.60.0.0",
+            "fileVersion": "1.60.0.0"
           }
         }
       },
@@ -190,19 +191,19 @@
       "path": "newtonsoft.json/12.0.3",
       "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
     },
-    "SkiaSharp/1.59.1": {
+    "SkiaSharp/1.60.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Le+YqP0aWwJ5ImHikWiLWOWjdH8oOV6F2D7fknzKp9ArzDIrtPASeiHpI1RgqQEK/GGvR56B2l5belsDzwK7uQ==",
-      "path": "skiasharp/1.59.1",
-      "hashPath": "skiasharp.1.59.1.nupkg.sha512"
+      "sha512": "sha512-HoSNIZH54rinevEhLUWdeclr+H/QdmOp252+Tt07HTXwQyvRl9eW32ga/X7T56wsR855SKprb0RcnBPRCzlqSA==",
+      "path": "skiasharp/1.60.0",
+      "hashPath": "skiasharp.1.60.0.nupkg.sha512"
     },
-    "SkiaSharp.Views.Forms/1.59.1.1": {
+    "SkiaSharp.Views.Forms/1.60.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-9SvUAas8A7Tj4NuvFX3Z+tCQFbC+XSayRJPI3zxrzfc8g0WTc2S0yCj8+wm/eSTB5fHmFguu9FOoiyYMj53fiw==",
-      "path": "skiasharp.views.forms/1.59.1.1",
-      "hashPath": "skiasharp.views.forms.1.59.1.1.nupkg.sha512"
+      "sha512": "sha512-9EQvuKcLcB9cdHWdA0RUuHVfA4tx5ndEhEhtlYXmvGmrKmhBhiZ1amV0KSffkNQV//PipHHZFOK+m/L3t7tEvA==",
+      "path": "skiasharp.views.forms/1.60.0",
+      "hashPath": "skiasharp.views.forms.1.60.0.nupkg.sha512"
     },
     "SQLite.Net-PCL/3.1.1": {
       "type": "package",

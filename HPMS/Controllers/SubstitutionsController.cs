@@ -15,6 +15,7 @@ namespace HPMS.Controllers
         private Models.HPMS db = new Models.HPMS();
 
         // GET: Substitutions
+        [Authorize]
         public ActionResult Index()
         {
             var substitutions = db.Substitutions.Include(s => s.Patient).Include(s => s.Substitution_Line);
@@ -75,6 +76,10 @@ namespace HPMS.Controllers
             {
                 substitution.Substution_ID = temp;
             }
+
+            //Replacing _ here
+            substitution.Reason = DataModels.DataProcess.Replace_(substitution.Reason);
+
             if (ModelState.IsValid)
             {
                 db.Substitutions.Add(substitution);
@@ -111,6 +116,9 @@ namespace HPMS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Substution_ID,Substitution_Date,PID,Reason,Line_ID,Regimen")] Substitution substitution)
         {
+            //Replacing _ here
+            substitution.Reason = DataModels.DataProcess.Replace_(substitution.Reason);
+
             if (ModelState.IsValid)
             {
                 db.Entry(substitution).State = EntityState.Modified;

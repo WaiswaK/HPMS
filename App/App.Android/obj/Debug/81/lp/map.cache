@@ -1,5 +1,4 @@
 App
-System.Runtime
 FormsViewGroup
 Microcharts
 Microcharts.Droid
@@ -13,6 +12,7 @@ SkiaSharp.Views.Forms
 SQLite.Net.Async
 SQLite.Net
 SQLite.Net.Platform.XamarinAndroid
+System.Runtime
 Xamarin.Android.Arch.Core.Common
 Xamarin.Android.Arch.Lifecycle.Common
 Xamarin.Android.Arch.Lifecycle.Runtime

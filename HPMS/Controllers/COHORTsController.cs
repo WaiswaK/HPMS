@@ -11,6 +11,7 @@ namespace HPMS.Controllers
         private Models.HPMS db = new Models.HPMS();
 
         // GET: COHORTs
+        [Authorize]
         public ActionResult Index()
         {
             var cOHORTs = db.COHORTs.Include(c => c.Patient);

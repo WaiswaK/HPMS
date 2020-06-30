@@ -27,18 +27,13 @@ namespace HPMS.Models
         [DataType(DataType.Date)]
         public DateTime? Date_Next_Visit { get; set; }
 
-        [Column("Date of Birth", TypeName = "date")]
-        [Display(Name = "Date of Birth")]
-        [DataType(DataType.Date)]
-        public DateTime? Date_of_Birth { get; set; }
-
         [Column("Nutrition Assessment")]
         [Display(Name = "Nutrition Assessment")]
         public string Nutrition_Assessment { get; set; }
 
         [Column("Pregnancy Status")]
         [Display(Name = "Pregnancy Status")]
-        public bool? Pregnancy_Status { get; set; }
+        public string Pregnancy_Status { get; set; }
 
         public double? Gestation { get; set; }
 
@@ -55,7 +50,7 @@ namespace HPMS.Models
 
         [Column("TB Status")]
         [Display(Name = "TB Status")]
-        public bool? TB_Status { get; set; }
+        public string TB_Status { get; set; }
 
         public bool? TPT { get; set; }
 

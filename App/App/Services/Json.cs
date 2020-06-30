@@ -44,7 +44,7 @@ namespace App.Services
                         new KeyValuePair<string, string>("UserName", _username)
                     };
                 var request_formContent = new FormUrlEncodedContent(request_postData);
-                var request_response = await request_httpclient.PostAsync(Constants.Json_link_request,
+                var request_response = await request_httpclient.PostAsync(Constants.Json_link_visit,
                                 request_formContent);
                 var request_result = await request_response.Content.ReadAsStreamAsync();
                 var request_streamReader = new System.IO.StreamReader(request_result);
@@ -103,7 +103,7 @@ namespace App.Services
                         new KeyValuePair<string, string>("UserName", _username)
                     };
                 var request_formContent = new FormUrlEncodedContent(request_postData);
-                var request_response = await request_httpclient.PostAsync(Constants.Json_link_request,
+                var request_response = await request_httpclient.PostAsync(Constants.Json_link_dashboard,
                                 request_formContent);
                 var request_result = await request_response.Content.ReadAsStreamAsync();
                 var request_streamReader = new System.IO.StreamReader(request_result);
@@ -128,7 +128,6 @@ namespace App.Services
             };
             return dashboard;
         }
-
         #endregion
 
         #region Graph

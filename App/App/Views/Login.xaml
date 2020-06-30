@@ -29,15 +29,6 @@
                IsVisible="False" 
                HorizontalTextAlignment="Center"/>
 
-        <Entry Placeholder="Host" TextColor="Black" x:Name ="host_field" 
-                       PlaceholderColor="White" Keyboard="Text" IsVisible="False"/>
-
-        <Entry Placeholder="Port" TextColor="Black" x:Name ="port_field" 
-                       PlaceholderColor="White" Keyboard ="Numeric" IsVisible="False"/>
-
-        <Button Text="Save" TextColor="White" BackgroundColor="Green"
-                        Clicked="SaveBtn_Clicked" x:Name ="SaveBtn" IsVisible="False"/>
-
     </StackLayout>
 
 

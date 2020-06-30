@@ -11,6 +11,7 @@ namespace HPMS.Controllers
         private Models.HPMS db = new Models.HPMS();
 
         // GET: Visits
+        [Authorize]
         public ActionResult Index()
         {
             var visits = db.Visits.Include(v => v.Patient);
@@ -70,6 +71,9 @@ namespace HPMS.Controllers
             {
                 visit.Visit_ID = temp;
             }
+            //Replacing _ here
+            visit.Pregnancy_Status = DataModels.DataProcess.Replace_(visit.Pregnancy_Status);
+            
             if (ModelState.IsValid)
             {
                 db.Visits.Add(visit);
@@ -104,6 +108,8 @@ namespace HPMS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Visit_ID,PID,Visit_Date,Date_Next_Visit,Date_of_Birth,Nutrition_Assessment,Pregnancy_Status,Gestation,FP,FP_Method,CaCx_Screening,TB_Status,TPT,TPT_Effects,Diagnosis,ART_Effects,Hep_Test,Hep_Result,Syphilis_Status,CTX,Other_Meds,ARV_Drugs,Fluconazole,Tests_and_Investigations,DSD_Model,SID,MUAC_SCORE,Weight,Height,Weight_Score,Height_Score,BMI_Score,Blood_pressure___Systolic,Blood_pressure___Diastolic,Blood_Sugar,Temperature,Tobacco_Use,CD4_Count,Clinical_Stage,Viral_Load")] Visit visit)
         {
+            //Replacing _ here
+            visit.Pregnancy_Status = DataModels.DataProcess.Replace_(visit.Pregnancy_Status);
             if (ModelState.IsValid)
             {
                 db.Entry(visit).State = EntityState.Modified;

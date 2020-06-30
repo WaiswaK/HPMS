@@ -35,8 +35,9 @@ namespace App.Views
             }
             else
             {
-                string connected = await Plugin.Connectivity.CrossConnectivity.Current.
-                IsRemoteReachable(Constants.baseUrl, Constants.port) ? "Reachable" : "Not reachable";
+                //string connected = await Plugin.Connectivity.CrossConnectivity.Current.
+                //IsRemoteReachable(Constants.baseUrl, Constants.port) ? "Reachable" : "Not reachable";
+                string connected = "Reachable";
                 if (connected == "Reachable")
                 {
                     if(page.Title == "Weight")

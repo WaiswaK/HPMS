@@ -152,10 +152,10 @@ namespace HPMS.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            List<SelectListItem> list = new List<SelectListItem>();
-            foreach(var role in RoleManager.Roles)
-                list.Add(new SelectListItem() { Value = role.Name, Text = role.Name });
-            ViewBag.Roles = list;
+            //List<SelectListItem> list = new List<SelectListItem>();
+            //foreach(var role in RoleManager.Roles)
+            //    list.Add(new SelectListItem() { Value = role.Name, Text = role.Name });
+            //ViewBag.Roles = list;
             return View();
         }
 

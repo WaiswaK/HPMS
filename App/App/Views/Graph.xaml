@@ -8,6 +8,6 @@
     <ContentPage.Content>
         <StackLayout>
             <charts:ChartView Chart="{Binding BarChart}" HeightRequest="400"/>
-        </StackLayout>
+       </StackLayout>
     </ContentPage.Content>
 </ContentPage>

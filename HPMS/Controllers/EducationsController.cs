@@ -11,6 +11,7 @@ namespace HPMS.Controllers
         private Models.HPMS db = new Models.HPMS();
 
         // GET: Educations
+        [Authorize]
         public ActionResult Index()
         {
             var educations = db.Educations.Include(e => e.Staff);

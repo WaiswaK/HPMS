@@ -153,5 +153,11 @@ namespace HPMS.DataModels
             name.Replace("  ", " ");
             return name;
         }
+        public static string Replace_(string word)
+        {
+            string final = word;
+            final.Replace("_", " ");
+            return final;
+        }
     }
 }
