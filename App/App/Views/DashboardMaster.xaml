@@ -7,12 +7,12 @@
     <StackLayout>
         <ListView x:Name="ListViewMenuItems"
                     SeparatorVisibility="Default"
-                    BackgroundColor="Green"
+                    BackgroundColor="Blue"
                     HasUnevenRows="False"
                     ItemsSource="{Binding MenuItems}">
 
             <ListView.Header>
-                <!--<Grid BackgroundColor="Green">-->
+                <!--<Grid BackgroundColor="Blue">-->
                 <Grid >
                     <Image Source="home.png" 
                            VerticalOptions="Start"

@@ -10,6 +10,6 @@ namespace App.Views
 		public Graph ()
 		{
 			InitializeComponent ();
-		}
+        }
 	}
 }

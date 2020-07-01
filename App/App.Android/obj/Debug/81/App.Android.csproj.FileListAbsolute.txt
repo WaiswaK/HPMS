@@ -1,7 +1,7 @@
 D:\Projects\HPMS\App\App.Android\bin\Debug\App.Android.dll
 D:\Projects\HPMS\App\App.Android\bin\Debug\App.Android.pdb
-D:\Projects\HPMS\App\App.Android\bin\Debug\com.companyname.apk
-D:\Projects\HPMS\App\App.Android\bin\Debug\com.companyname-Signed.apk
+D:\Projects\HPMS\App\App.Android\bin\Debug\com.hpms.apk
+D:\Projects\HPMS\App\App.Android\bin\Debug\com.hpms-Signed.apk
 D:\Projects\HPMS\App\App.Android\bin\Debug\App.dll
 D:\Projects\HPMS\App\App.Android\bin\Debug\App.pdb
 D:\Projects\HPMS\App\App.Android\obj\Debug\81\MonoAndroid,Version=v8.1.AssemblyAttributes.cs
@@ -14,7 +14,7 @@ D:\Projects\HPMS\App\App.Android\obj\Debug\81\XamlC.stamp
 D:\Projects\HPMS\App\App.Android\obj\Debug\81\App.Android.csproj.CopyComplete
 D:\Projects\HPMS\App\App.Android\obj\Debug\81\App.Android.dll
 D:\Projects\HPMS\App\App.Android\obj\Debug\81\App.Android.pdb
-D:\Projects\HPMS\App\App.Android\obj\Debug\81\android\bin\com.companyname.apk
+D:\Projects\HPMS\App\App.Android\obj\Debug\81\android\bin\com.hpms.apk
 D:\Projects\HPMS\App\App.Android\obj\Debug\81\res\layout\tabbar.xml
 D:\Projects\HPMS\App\App.Android\obj\Debug\81\res\layout\toolbar.xml
 D:\Projects\HPMS\App\App.Android\obj\Debug\81\res\values\styles.xml
@@ -31,7 +31,6 @@ D:\Projects\HPMS\App\App.Android\obj\Debug\81\res\mipmap-xxhdpi\icon.png
 D:\Projects\HPMS\App\App.Android\obj\Debug\81\res\mipmap-xxhdpi\launcher_foreground.png
 D:\Projects\HPMS\App\App.Android\obj\Debug\81\res\mipmap-xxxhdpi\icon.png
 D:\Projects\HPMS\App\App.Android\obj\Debug\81\res\mipmap-xxxhdpi\launcher_foreground.png
-D:\Projects\HPMS\App\App.Android\obj\Debug\81\res\drawable\xamarin_logo.png
 D:\Projects\HPMS\App\App.Android\obj\Debug\81\res\drawable\blood.png
 D:\Projects\HPMS\App\App.Android\obj\Debug\81\res\drawable\cohort.png
 D:\Projects\HPMS\App\App.Android\obj\Debug\81\res\drawable\home.png
@@ -40,9 +39,11 @@ D:\Projects\HPMS\App\App.Android\obj\Debug\81\res\drawable\score.png
 D:\Projects\HPMS\App\App.Android\obj\Debug\81\res\drawable\settings.png
 D:\Projects\HPMS\App\App.Android\obj\Debug\81\res\drawable\weight.png
 D:\Projects\HPMS\App\App.Android\obj\Debug\81\res\drawable\about.png
+D:\Projects\HPMS\App\App.Android\obj\Debug\81\res\drawable\icon.png
 D:\Projects\HPMS\App\App.Android\obj\Debug\81\R.cs.flag
 D:\Projects\HPMS\App\App.Android\obj\Debug\81\R.txt
 D:\Projects\HPMS\App\App.Android\obj\Debug\81\uploadflags.txt
+D:\Projects\HPMS\App\App\bin\Debug\netstandard2.0\App.dll
 D:\Projects\HPMS\App\App.Android\bin\Debug\Mono.Android.pdb
 D:\Projects\HPMS\App\App.Android\bin\Debug\mscorlib.pdb
 D:\Projects\HPMS\App\App.Android\bin\Debug\Plugin.Connectivity.Abstractions.pdb
@@ -63,11 +64,6 @@ D:\Projects\HPMS\App\App.Android\bin\Debug\System.Runtime.Serialization.pdb
 D:\Projects\HPMS\App\App.Android\bin\Debug\System.ServiceModel.Internals.pdb
 D:\Projects\HPMS\App\App.Android\bin\Debug\System.Web.Services.pdb
 D:\Projects\HPMS\App\App.Android\bin\Debug\Mono.Security.pdb
-D:\Projects\HPMS\App\App.Android\bin\Debug\App.dll.mdb
-D:\Projects\HPMS\App\App.Android\bin\Debug\FormsViewGroup.dll.mdb
-D:\Projects\HPMS\App\App.Android\bin\Debug\Plugin.Connectivity.dll.mdb
-D:\Projects\HPMS\App\App.Android\bin\Debug\Xamarin.Forms.Platform.Android.dll.mdb
-D:\Projects\HPMS\App\App\bin\Debug\netstandard2.0\App.dll
 D:\Projects\HPMS\App\App.Android\obj\Debug\81\linksrc\App.Android.pdb
 D:\Projects\HPMS\App\App.Android\obj\Debug\81\linksrc\Mono.Android.pdb
 D:\Projects\HPMS\App\App.Android\obj\Debug\81\linksrc\mscorlib.pdb
@@ -90,6 +86,9 @@ D:\Projects\HPMS\App\App.Android\obj\Debug\81\linksrc\System.ServiceModel.Intern
 D:\Projects\HPMS\App\App.Android\obj\Debug\81\linksrc\System.Web.Services.pdb
 D:\Projects\HPMS\App\App.Android\obj\Debug\81\linksrc\Mono.Security.pdb
 D:\Projects\HPMS\App\App.Android\bin\Debug\App.dll.mdb
+D:\Projects\HPMS\App\App.Android\bin\Debug\FormsViewGroup.dll.mdb
+D:\Projects\HPMS\App\App.Android\bin\Debug\Plugin.Connectivity.dll.mdb
+D:\Projects\HPMS\App\App.Android\bin\Debug\Xamarin.Forms.Platform.Android.dll.mdb
 D:\Projects\HPMS\App\App.Android\obj\Debug\81\linksrc\App.dll.mdb
 D:\Projects\HPMS\App\App.Android\obj\Debug\81\linksrc\FormsViewGroup.dll.mdb
 D:\Projects\HPMS\App\App.Android\obj\Debug\81\linksrc\Plugin.Connectivity.dll.mdb

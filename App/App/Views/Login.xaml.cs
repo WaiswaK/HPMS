@@ -26,6 +26,52 @@ namespace App.Views
             LoginAction(username, code);
         }
 
+        private void Register_btn_Clicked(object sender, EventArgs e)
+        {
+            host_field.IsVisible = true;
+            port_field.IsVisible = true;
+            SaveBtn.IsVisible = true;
+            email_tb.IsVisible = false;
+            password_tb.IsVisible = false;
+            login_btn.IsVisible = false;
+            register_btn.IsVisible = false;
+        }
+
+        private void SaveBtn_Clicked(object sender, EventArgs e)
+        {
+            if (host_field.Text == null || port_field.Text == null || host_field.Text == string.Empty || port_field.Text == string.Empty)
+            {
+                DisplayAlert(Message.Server_Header, Message.SettingsIncomplete, Message.Ok);
+            }
+            else
+            {
+                using (var db = DependencyService.Get<DependencyInterface.IClientDatabase>().GetConnection())
+                {
+                    var query = db.Table<Server>().ToList();
+                    if (query.Count > 0)
+                    {
+                        foreach (var result in query)
+                        {
+                            db.Delete(result);
+                        }
+                    }
+                    db.Insert(new Server()
+                    {
+                        Host = host_field.Text,
+                        Port = Int32.Parse(port_field.Text)
+                    });
+                }
+                DisplayAlert(Message.Server_Header, Message.Server_Message, Message.Ok);
+                host_field.IsVisible = false;
+                port_field.IsVisible = false;
+                SaveBtn.IsVisible = false;
+                email_tb.IsVisible = true;
+                password_tb.IsVisible = true;
+                login_btn.IsVisible = true;
+
+            }
+        }
+
         #region Login Methods
         private async void LoginAction(string username, string password)
         {
@@ -117,5 +163,6 @@ namespace App.Views
             await Navigation.PopAsync();
         }
         #endregion
+       
     }
 }

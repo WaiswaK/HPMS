@@ -7,10 +7,10 @@ using Microcharts;
 
 namespace App.ViewModels
 {
-    class GraphViewModel : BaseViewModel
+    public class GraphViewModel : BaseViewModel
     {
-        private Chart _barChart;
-        public Chart BarChart
+        private Chart _barChart;//Chart _barChart;
+        public Chart BarChart//Chart BarChart
         {
             get { return _barChart; }
             set { SetProperty(ref _barChart, value); }
@@ -24,19 +24,20 @@ namespace App.ViewModels
         public List<GraphData> Graphs { get; set; }
         private async Task InitializeAsync(string _type, string _username)
         {
-            //var graphs = await Json.GraphContent(_type, _username);
-            var graphs = Repository.GraphContent(_type, _username);
+            var graphs = await Json.GraphContent(_type, _username);
 
             _barChart.Entries = graphs.Select(
                 (v, index) => new Entry(v.Value)
                 {
-                    ValueLabel = v.Value.ToString("N2"),
+                    ValueLabel = v.Value.ToString(),
                     Label = v.Month
                 });
+
         }
         public GraphViewModel(string _page, string _username)
         {
             Title = _page;
+            _barChart = new LineChart();//BarChart();
             InitializeAsync(_page, _username);
         }
     }

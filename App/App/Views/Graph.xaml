@@ -7,7 +7,7 @@
              Title="{Binding Title}">
     <ContentPage.Content>
         <StackLayout>
-            <charts:ChartView Chart="{Binding BarChart}" HeightRequest="400"/>
+            <charts:ChartView Chart="{Binding BarChart}" HeightRequest="600"/>
        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

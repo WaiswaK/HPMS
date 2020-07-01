@@ -17,17 +17,33 @@
                PlaceholderColor="White" 
                TextColor="Black"/>
 
-        
 
         <Button x:Name ="login_btn" 
                 Text="Enter" 
                 Clicked="OnLoginButtonClicked" 
                 BackgroundColor="White"/>
 
+        <Button x:Name ="register_btn" 
+                Text="Setting" 
+                Clicked="Register_btn_Clicked" 
+                BackgroundColor="White"/>
+
 
         <Label x:Name="LoadingMsg" 
                IsVisible="False" 
                HorizontalTextAlignment="Center"/>
+
+
+
+        <Entry Placeholder="Host" TextColor="Black" x:Name ="host_field" 
+                       PlaceholderColor="White" Keyboard="Text" IsVisible="False"/>
+
+        <Entry Placeholder="Port" TextColor="Black" x:Name ="port_field" 
+                       PlaceholderColor="White" Keyboard ="Numeric" IsVisible="False"/>
+
+        <Button Text="Save" TextColor="White" BackgroundColor="Blue"
+                        Clicked="SaveBtn_Clicked" x:Name ="SaveBtn" IsVisible="False"/>
+
 
     </StackLayout>
 

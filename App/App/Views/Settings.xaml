@@ -8,15 +8,15 @@
         <Label Text="{Binding Port}" x:Name="portLabel"/>
 
         <Entry Placeholder="Host" TextColor="Black" x:Name ="host_field" 
-                       PlaceholderColor="Green" Keyboard="Text" IsVisible="False"/>
+                       PlaceholderColor="Blue" Keyboard="Text" IsVisible="False"/>
 
         <Entry Placeholder="Port" TextColor="Black" x:Name ="port_field" 
-                       PlaceholderColor="Green" Keyboard ="Numeric" IsVisible="False"/>
+                       PlaceholderColor="Blue" Keyboard ="Numeric" IsVisible="False"/>
 
-        <Button Text="Change" TextColor="White" BackgroundColor="Green"
+        <Button Text="Change" TextColor="White" BackgroundColor="Blue"
                         Clicked="EditBtn_Clicked" x:Name ="EditBtn"/>
 
-        <Button Text="Save" TextColor="White" BackgroundColor="Green"
+        <Button Text="Save" TextColor="White" BackgroundColor="Blue"
                         Clicked="SaveBtn_Clicked" x:Name ="SaveBtn" IsVisible="False"/>
 
     </StackLayout>

@@ -5,8 +5,6 @@
         public static string Diagnosis_Header = "Diagnosis";
         public static string Symptom_Empty = "Please enter at least one symptom to get a diagnosis";
         public static string Ok = "OK";
-        public static string Symptom_Header = "Symptom";
-        public static string Symptom_Unclear_Message = "Please clarify your symptoms";
         public static string Diagnosis_Inconclusive = "Please select more symptoms to get a clear diagnosis";
         public static string Server_Header = "Server";
         public static string Server_Message = "Server has been updated";
@@ -21,12 +19,10 @@
         public static string Checking_Connection = "Checking for Connection...";
         public static string Connection_Established = "Connection Established...";
         public static string Syncronization = "Syncronising Your Content. Please wait...";
-        public static string RegisterHeader = "Do you want to set server or Register new user";
-        public static string RegisterUser = "Register";
+     
+       
         public static string SetServer = "Set server";
-        public static string NoRegisterdetails = "Please enter all required Registration details";
-        public static string Register_Message_Fail = "You need to be online to register";
-        public static string Registration_wrong = "Something went wrong during registration";
+        
         public static string ManagementHeader = "Management";
     }
 }

@@ -25,27 +25,36 @@ namespace App.Views
             page.Title = item.Title;
 
             #region Page Selection
-            if (page.Title == "Settings" || page.Title == "About" || page.Title == "Home")
+            if (page.Title == "Settings" || page.Title == "About")
             {
                 Detail = new NavigationPage(page)
                 {
-                    BarBackgroundColor = Color.Green,
+                    BarBackgroundColor = Color.Blue,
                     BarTextColor = Color.White
                 };
             }
             else
             {
-                //string connected = await Plugin.Connectivity.CrossConnectivity.Current.
-                //IsRemoteReachable(Constants.baseUrl, Constants.port) ? "Reachable" : "Not reachable";
-                string connected = "Reachable";
+                string connected = await Plugin.Connectivity.CrossConnectivity.Current.
+                IsRemoteReachable(Constants.baseUrl, Constants.port) ? "Reachable" : "Not reachable";
+                
                 if (connected == "Reachable")
                 {
+                    if(page.Title == "Home")
+                    {
+                        Detail = new NavigationPage(page)
+                        {
+                            BindingContext = new HomeViewModel(),
+                            BarBackgroundColor = Color.Blue,
+                            BarTextColor = Color.White
+                        };
+                    }
                     if(page.Title == "Weight")
                     {
                         Detail = new NavigationPage(page)
                         {
                             BindingContext = new GraphViewModel("Weight", ""),
-                            BarBackgroundColor = Color.Green,
+                            BarBackgroundColor = Color.Blue,
                             BarTextColor = Color.White
                         };
                     }
@@ -54,7 +63,7 @@ namespace App.Views
                         Detail = new NavigationPage(page)
                         {
                             BindingContext = new GraphViewModel("MUAC_SCORE", ""),
-                            BarBackgroundColor = Color.Green,
+                            BarBackgroundColor = Color.Blue,
                             BarTextColor = Color.White
                         };
                     }
@@ -63,7 +72,7 @@ namespace App.Views
                         Detail = new NavigationPage(page)
                         {
                             BindingContext = new GraphViewModel("Blood_Sugar", ""),
-                            BarBackgroundColor = Color.Green,
+                            BarBackgroundColor = Color.Blue,
                             BarTextColor = Color.White
                         };
                     }
@@ -72,7 +81,7 @@ namespace App.Views
                         Detail = new NavigationPage(page)
                         {
                             BindingContext = new GraphViewModel("Viral_Load", ""),
-                            BarBackgroundColor = Color.Green,
+                            BarBackgroundColor = Color.Blue,
                             BarTextColor = Color.White
                         };
                     }

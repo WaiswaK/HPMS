@@ -1,7 +1,6 @@
 D:\Projects\HPMS\App\App\bin\Debug\netstandard2.0\App.deps.json
 D:\Projects\HPMS\App\App\bin\Debug\netstandard2.0\App.dll
 D:\Projects\HPMS\App\App\bin\Debug\netstandard2.0\App.pdb
-D:\Projects\HPMS\App\App\obj\Debug\netstandard2.0\App.csprojAssemblyReference.cache
 D:\Projects\HPMS\App\App\obj\Debug\netstandard2.0\App.xaml.g.cs
 D:\Projects\HPMS\App\App\obj\Debug\netstandard2.0\Views\Dashboard.xaml.g.cs
 D:\Projects\HPMS\App\App\obj\Debug\netstandard2.0\Views\DashboardDetail.xaml.g.cs
@@ -14,6 +13,6 @@ D:\Projects\HPMS\App\App\obj\Debug\netstandard2.0\Views\Splash.xaml.g.cs
 D:\Projects\HPMS\App\App\obj\Debug\netstandard2.0\App.csproj.CoreCompileInputs.cache
 D:\Projects\HPMS\App\App\obj\Debug\netstandard2.0\App.AssemblyInfoInputs.cache
 D:\Projects\HPMS\App\App\obj\Debug\netstandard2.0\App.AssemblyInfo.cs
+D:\Projects\HPMS\App\App\obj\Debug\netstandard2.0\XamlC.stamp
 D:\Projects\HPMS\App\App\obj\Debug\netstandard2.0\App.dll
 D:\Projects\HPMS\App\App\obj\Debug\netstandard2.0\App.pdb
-D:\Projects\HPMS\App\App\obj\Debug\netstandard2.0\XamlC.stamp

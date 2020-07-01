@@ -20,14 +20,14 @@ namespace App.Views
             await Task.Factory.StartNew(async () => {
 
                 // delay for a few seconds on the splash screen
-                await Task.Delay(3000);
+                await Task.Delay(1500);
 
                 var navPage = new NavigationPage();
                 if (Services.Database.GetActiveUser() == string.Empty)
                 {
                     navPage = new NavigationPage(new Login())
                     {
-                        BarBackgroundColor = Color.Green
+                        //BarBackgroundColor = Color.Blue
                     };
                 }
                 else
@@ -39,7 +39,7 @@ namespace App.Views
                                     IsPresented = true
                                 })
                     {
-                        BarBackgroundColor = Color.Green,
+                        BarBackgroundColor = Color.Blue,
                         BarTextColor = Color.White
                     };
                 }

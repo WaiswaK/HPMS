@@ -8,8 +8,8 @@ namespace App.Services
 {
     public class Constants
     {
-        public static string dbName = "HPMS.sqlite";
-        private static string http = @"http://";
+        public static string dbName = "hpms.db";
+        private static readonly string http = @"http://";
         public static string baseUrl = http + HostIP();
         public static int port = HostPort();
         public static string hostUrl = baseUrl + ":" + port;

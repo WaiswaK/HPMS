@@ -9,7 +9,7 @@ namespace App.ViewModels
     {
         public string ART_CARE_COHORT { get; set; }
         public string Current_Drugs { get; set; }
-        public DateTime Date_Next_Visit { get; set; }
+        public DateTime? Date_Next_Visit { get; set; }
         public string Fullnames { get; set; }
         public string Profile_photo { get; set; }
         public string TB_Regimen { get; set; }
@@ -26,7 +26,7 @@ namespace App.ViewModels
             Current_Drugs = DashboardData.Current_Drugs;
             WHO_HIV_Stage = DashboardData.WHO_HIV_Stage;
             Profile_photo = DashboardData.Profile_photo;
-            //Date_Next_Visit = DashboardData.Date_Next_Visit;
+            Date_Next_Visit = DashboardData.Date_Next_Visit;
         }
         private async Task GetdataAsync(string _username)
         {

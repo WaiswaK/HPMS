@@ -1,7 +1,7 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using App.Views;
-using App.ViewModels;
+using App.Services;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace App
@@ -12,30 +12,28 @@ namespace App
         public App()
         {
             InitializeComponent();
-           // if (Device.RuntimePlatform == Device.Android)
+            // if (Device.RuntimePlatform == Device.Android)
             //{
-             //   MainPage = new Splash();
-           // }
+               MainPage = new Splash();
+            // }
             //else
             //{
-                MainPage = new NavigationPage(
-                                               new Dashboard()
-                                               {
-                                                   BindingContext = new DashboardMasterViewModel(),
-                                                   IsPresented = true
-                                               })
-                {
-                    BarBackgroundColor = Color.Green,
-                    BarTextColor = Color.White
-                };
-            //}
-
-
+            /*MainPage = new NavigationPage(
+                            new Dashboard()
+                            {
+                                BindingContext = new DashboardMasterViewModel(),
+                                IsPresented = true
+                            })
+            {
+                BarBackgroundColor = Color.Blue,
+                BarTextColor = Color.White
+            };*/
         }
 
         protected override void OnStart()
         {
             // Handle when your app starts
+            Constants.InitializeDatabase();
         }
 
         protected override void OnSleep()
