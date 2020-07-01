@@ -6,7 +6,6 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using HPMS.Models;
-using System.Collections.Generic;
 
 namespace HPMS.Controllers
 {

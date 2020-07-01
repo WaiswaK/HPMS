@@ -81,10 +81,10 @@ namespace HPMS.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
         //public string RoleName { get; set; }
-        [Required(ErrorMessage = "Please select a role")]
+        //[Required(ErrorMessage = "Please select a role")]
         //public string RoleName { get; set; }
         //public IEnumerable<SelectListItem> RoleList { get; set; } //Add ended here
-        public string NIN { get; set; }
+        //public string NIN { get; set; }
     }
 
     public class ResetPasswordViewModel

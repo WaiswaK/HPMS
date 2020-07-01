@@ -74,8 +74,8 @@ namespace HPMS.Controllers
                         }
                         catch(System.Exception ex)
                         {
-                            string x = ex.ToString();
-                            int xy = 0;
+                            //string x = ex.ToString();
+                            //int xy = 0;
                         }
                         
                     }
@@ -130,8 +130,8 @@ namespace HPMS.Controllers
                     }
                     catch(System.Exception ex)
                     {
-                        string x = ex.ToString();
-                        int xy = 0;
+                        //string x = ex.ToString();
+                        //int xy = 0;
                     }
                     
                 }
