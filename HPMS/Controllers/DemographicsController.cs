@@ -59,26 +59,18 @@ namespace HPMS.Controllers
                 else
                 {
                     if (upload != null && upload.ContentLength > 0)
-                    {
-                        try
+                    {                       
+                        string ext = Path.GetExtension(upload.FileName).ToLower();
+                        if (ext == ".jpg" || ext == ".png" || ext == ".jpeg")
                         {
-                            string ext = Path.GetExtension(upload.FileName).ToLower();
-                            if (ext == ".jpg" || ext == ".png" || ext == ".jpeg")
-                            {
-                                var uploadpath = Path.Combine(Server.MapPath("~/Images/People"),
-                                   demographic.ImagePath + ".jpg");
-                                var path = @"~/Images/People" + @"/" + demographic.Id + ".jpg";
-                                demographic.ImagePath = path;
-                                upload.SaveAs(uploadpath);
-                            }
+                            var uploadpath = Path.Combine(Server.MapPath("~/Images/People"),
+                               demographic.Id + ".jpg");
+                            var path = @"~/Images/People" + @"/" + demographic.Id + ".jpg";
+                            demographic.ImagePath = path;
+                            upload.SaveAs(uploadpath);
                         }
-                        catch(System.Exception ex)
-                        {
-                            //string x = ex.ToString();
-                            //int xy = 0;
-                        }
-                        
                     }
+                    demographic.Full_Name = DataModels.DataProcess.RemoveSpace(demographic.Given_Name + " " + demographic.Midle_Name + " " + demographic.Family_Name);
                     db.Demographics.Add(demographic);
                     db.SaveChanges();
                 }
@@ -116,25 +108,17 @@ namespace HPMS.Controllers
             {
                 if (upload != null && upload.ContentLength > 0)
                 {
-                    try
+                    string ext = Path.GetExtension(upload.FileName).ToLower();
+                    if (ext == ".jpg" || ext == ".png" || ext == ".jpeg")
                     {
-                        string ext = Path.GetExtension(upload.FileName).ToLower();
-                        if (ext == ".jpg" || ext == ".png" || ext == ".jpeg")
-                        {
-                            var uploadpath = Path.Combine(Server.MapPath("~/Images/People"),
-                               demographic.ImagePath + ".jpg");
-                            var path = @"~/Images/People" + @"/" + demographic.Id + ".jpg";
-                            demographic.ImagePath = path;
-                            upload.SaveAs(uploadpath);
-                        }
+                        var uploadpath = Path.Combine(Server.MapPath("~/Images/People"),
+                           demographic.Id + ".jpg");
+                        var path = @"~/Images/People" + @"/" + demographic.Id + ".jpg";
+                        demographic.ImagePath = path;
+                        upload.SaveAs(uploadpath);
                     }
-                    catch(System.Exception ex)
-                    {
-                        //string x = ex.ToString();
-                        //int xy = 0;
-                    }
-                    
                 }
+                demographic.Full_Name = DataModels.DataProcess.RemoveSpace(demographic.Given_Name + " " + demographic.Midle_Name + " " + demographic.Family_Name);
                 db.Entry(demographic).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

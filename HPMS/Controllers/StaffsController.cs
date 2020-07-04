@@ -36,7 +36,7 @@ namespace HPMS.Controllers
         // GET: Staffs/Create
         public ActionResult Create()
         {
-            ViewBag.NIN = new SelectList(db.Demographics, "NIN", "Given_Name");
+            ViewBag.NIN = new SelectList(db.Demographics, "NIN", "Full_Name");
             return View();
         }
 
@@ -79,7 +79,7 @@ namespace HPMS.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.NIN = new SelectList(db.Demographics, "NIN", "Given_Name", staff.NIN);
+            ViewBag.NIN = new SelectList(db.Demographics, "NIN", "Full_Name", staff.NIN);
             return View(staff);
         }
 
@@ -95,7 +95,7 @@ namespace HPMS.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.NIN = new SelectList(db.Demographics, "NIN", "Given_Name", staff.NIN);
+            ViewBag.NIN = new SelectList(db.Demographics, "NIN", "Full_Name", staff.NIN);
             return View(staff);
         }
 
@@ -112,7 +112,7 @@ namespace HPMS.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.NIN = new SelectList(db.Demographics, "NIN", "Given_Name", staff.NIN);
+            ViewBag.NIN = new SelectList(db.Demographics, "NIN", "Full_Name", staff.NIN);
             return View(staff);
         }
 

@@ -147,7 +147,7 @@ namespace HPMS.DataModels
             List<string> datalist = datasplit.ToList();
             return Int32.Parse(datalist.Last()) + 1;
         }
-        private static string RemoveSpace(string _name)
+        public static string RemoveSpace(string _name)
         {
             string name = _name;
             name.Replace("  ", " ");

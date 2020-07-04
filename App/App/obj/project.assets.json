@@ -769,11 +769,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\HPMS\\App\\App\\App.csproj",
+      "projectUniqueName": "D:\\Projects\\Mobile Apps\\HPMS\\App\\App\\App.csproj",
       "projectName": "App",
-      "projectPath": "D:\\Projects\\HPMS\\App\\App\\App.csproj",
+      "projectPath": "D:\\Projects\\Mobile Apps\\HPMS\\App\\App\\App.csproj",
       "packagesPath": "C:\\Users\\Kenneth\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\HPMS\\App\\App\\obj\\",
+      "outputPath": "D:\\Projects\\Mobile Apps\\HPMS\\App\\App\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

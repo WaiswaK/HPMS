@@ -67,6 +67,8 @@ namespace HPMS.Models
         [StringLength(128)]
         public string Id { get; set; }
 
+        [Column("Full Name")]
+        public string Full_Name { get; set; }
         public virtual AspNetUser AspNetUser { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

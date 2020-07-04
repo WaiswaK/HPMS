@@ -1251,11 +1251,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\HPMS\\App\\App.Android\\App.Android.csproj",
+      "projectUniqueName": "D:\\Projects\\Mobile Apps\\HPMS\\App\\App.Android\\App.Android.csproj",
       "projectName": "App.Android",
-      "projectPath": "D:\\Projects\\HPMS\\App\\App.Android\\App.Android.csproj",
+      "projectPath": "D:\\Projects\\Mobile Apps\\HPMS\\App\\App.Android\\App.Android.csproj",
       "packagesPath": "C:\\Users\\Kenneth\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\HPMS\\App\\App.Android\\obj\\",
+      "outputPath": "D:\\Projects\\Mobile Apps\\HPMS\\App\\App.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
@@ -1272,8 +1272,8 @@
       "frameworks": {
         "monoandroid81": {
           "projectReferences": {
-            "D:\\Projects\\HPMS\\App\\App\\App.csproj": {
-              "projectPath": "D:\\Projects\\HPMS\\App\\App\\App.csproj"
+            "D:\\Projects\\Mobile Apps\\HPMS\\App\\App\\App.csproj": {
+              "projectPath": "D:\\Projects\\Mobile Apps\\HPMS\\App\\App\\App.csproj"
             }
           }
         }

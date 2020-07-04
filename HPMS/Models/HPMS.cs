@@ -45,6 +45,10 @@ namespace HPMS.Models
                 .IsFixedLength();
 
             modelBuilder.Entity<Demographic>()
+                .Property(e => e.ImagePath)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Demographic>()
                 .HasMany(e => e.Patients)
                 .WithRequired(e => e.Demographic)
                 .WillCascadeOnDelete(false);
