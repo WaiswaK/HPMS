@@ -11,6 +11,8 @@ namespace HPMS.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Demographic()
         {
+            Forum_Comment = new HashSet<Forum_Comment>();
+            Forum_Header = new HashSet<Forum_Header>();
             Patients = new HashSet<Patient>();
             Staffs = new HashSet<Staff>();
         }
@@ -70,6 +72,12 @@ namespace HPMS.Models
         [Column("Full Name")]
         public string Full_Name { get; set; }
         public virtual AspNetUser AspNetUser { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Forum_Comment> Forum_Comment { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Forum_Header> Forum_Header { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Patient> Patients { get; set; }

@@ -150,6 +150,9 @@ namespace HPMS.Models
         [Column("Viral Load", TypeName = "numeric")]
         [Display(Name = "Viral Load")]
         public decimal? Viral_Load { get; set; }
+        [Column("Medical report", TypeName = "text")]
+        [Display(Name = "Medical Report path")]
+        public string Medical_report { get; set; }
 
         public virtual Patient Patient { get; set; }
     }

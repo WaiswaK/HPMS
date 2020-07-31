@@ -10,6 +10,7 @@ namespace HPMS.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Staff()
         {
+            Appointments = new HashSet<Appointment>();
             Educations = new HashSet<Education>();
             Histories = new HashSet<History>();
         }
@@ -27,6 +28,8 @@ namespace HPMS.Models
         public string Job_Description { get; set; }
 
         public virtual Demographic Demographic { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Appointment> Appointments { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Education> Educations { get; set; }
