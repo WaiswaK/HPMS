@@ -1,0 +1,45 @@
+﻿@model IEnumerable<HPMS.Models.Patient_Medication>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Medication.Medicine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Patient.NIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Time_for__Medication)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Medication.Medicine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Patient.NIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Time_for__Medication)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PMedID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PMedID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PMedID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,6 +1,8 @@
 ﻿using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using HPMS.Models;
 
@@ -45,7 +47,11 @@ namespace HPMS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Visit_ID,PID,Visit_Date,Date_Next_Visit,Date_of_Birth,Nutrition_Assessment,Pregnancy_Status,Gestation,FP,FP_Method,CaCx_Screening,TB_Status,TPT,TPT_Effects,Diagnosis,ART_Effects,Hep_Test,Hep_Result,Syphilis_Status,CTX,Other_Meds,ARV_Drugs,Fluconazole,Tests_and_Investigations,DSD_Model,SID,MUAC_SCORE,Weight,Height,Weight_Score,Height_Score,BMI_Score,Blood_pressure___Systolic,Blood_pressure___Diastolic,Blood_Sugar,Temperature,Tobacco_Use,CD4_Count,Clinical_Stage,Viral_Load")] Visit visit)
+        public ActionResult Create([Bind(Include = "Visit_ID,PID,Visit_Date,Date_Next_Visit,Nutrition_Assessment,Pregnancy_Status,Gestation,FP," +
+            "FP_Method,CaCx_Screening,TB_Status,TPT,TPT_Effects,Diagnosis,ART_Effects,Hep_Test,Hep_Result,Syphilis_Status,CTX,Other_Meds,ARV_Drugs,Fluconazole," +
+            "Tests_and_Investigations,DSD_Model,SID,MUAC_SCORE,Weight,Height,Weight_Score,Height_Score,BMI_Score,Blood_pressure___Systolic," +
+            "Blood_pressure___Diastolic,Blood_Sugar,Temperature,Tobacco_Use,CD4_Count,Clinical_Stage," +
+            "Viral_Load,Medical_report")] Visit visit, HttpPostedFileBase upload)
         {
             var query = db.Visits.Count() + 1;
             string temp = "V-" + query;
@@ -73,9 +79,23 @@ namespace HPMS.Controllers
             }
             //Replacing _ here
             visit.Pregnancy_Status = DataModels.DataProcess.Replace_(visit.Pregnancy_Status);
-            
+
+
+
             if (ModelState.IsValid)
             {
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    string ext = Path.GetExtension(upload.FileName).ToLower(); 
+                    
+                    var uploadpath = Path.Combine(Server.MapPath("~/Documents/"),
+                           visit.Visit_ID + "." + ext);
+                    var path = @"~/Documents" + @"/" + visit.Visit_ID + ext;
+                    visit.Medical_report = path;
+                    upload.SaveAs(uploadpath);
+                }
+
+
                 db.Visits.Add(visit);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -106,12 +126,25 @@ namespace HPMS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Visit_ID,PID,Visit_Date,Date_Next_Visit,Date_of_Birth,Nutrition_Assessment,Pregnancy_Status,Gestation,FP,FP_Method,CaCx_Screening,TB_Status,TPT,TPT_Effects,Diagnosis,ART_Effects,Hep_Test,Hep_Result,Syphilis_Status,CTX,Other_Meds,ARV_Drugs,Fluconazole,Tests_and_Investigations,DSD_Model,SID,MUAC_SCORE,Weight,Height,Weight_Score,Height_Score,BMI_Score,Blood_pressure___Systolic,Blood_pressure___Diastolic,Blood_Sugar,Temperature,Tobacco_Use,CD4_Count,Clinical_Stage,Viral_Load")] Visit visit)
+        public ActionResult Edit([Bind(Include = "Visit_ID,PID,Visit_Date,Date_Next_Visit,Nutrition_Assessment,Pregnancy_Status,Gestation,FP," +
+            "FP_Method,CaCx_Screening,TB_Status,TPT,TPT_Effects,Diagnosis,ART_Effects,Hep_Test,Hep_Result,Syphilis_Status,CTX,Other_Meds,ARV_Drugs,Fluconazole," +
+            "Tests_and_Investigations,DSD_Model,SID,MUAC_SCORE,Weight,Height,Weight_Score,Height_Score,BMI_Score,Blood_pressure___Systolic," +
+            "Blood_pressure___Diastolic,Blood_Sugar,Temperature,Tobacco_Use,CD4_Count,Clinical_Stage," +
+            "Viral_Load,Medical_report")] Visit visit, HttpPostedFileBase upload)
         {
             //Replacing _ here
             visit.Pregnancy_Status = DataModels.DataProcess.Replace_(visit.Pregnancy_Status);
             if (ModelState.IsValid)
             {
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    string ext = Path.GetExtension(upload.FileName).ToLower();
+                    var uploadpath = Path.Combine(Server.MapPath("~/Documents/"),
+                       visit.Visit_ID + "." + ext);
+                    var path = @"~/Documents" + @"/" + visit.Visit_ID + ext;
+                    visit.Medical_report = path;
+                    upload.SaveAs(uploadpath);
+                }
                 db.Entry(visit).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
