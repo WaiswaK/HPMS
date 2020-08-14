@@ -199,8 +199,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
-    <Compile Include="Controllers\Patient_Diet_ChartController.cs" />
-    <Compile Include="Controllers\Patient_MedicationController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\StaffsController.cs" />
     <Compile Include="Controllers\SubstitutionsController.cs" />
     <Compile Include="Controllers\UserAccountController.cs" />
@@ -233,9 +232,6 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Medication.cs" />
     <Compile Include="Models\Patient.cs" />
-    <Compile Include="Models\Patient_Diet_Chart.cs" />
-    <Compile Include="Models\Patient_Health_Tip.cs" />
-    <Compile Include="Models\Patient_Medication.cs" />
     <Compile Include="Models\Selection.cs" />
     <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\Substitution.cs" />
@@ -281,7 +277,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -340,10 +335,8 @@
     <Content Include="Views\Substitution_Line\Details.cshtml" />
     <Content Include="Views\Substitution_Line\Edit.cshtml" />
     <Content Include="Views\Substitution_Line\Index.cshtml" />
-    <Content Include="Views\Visits\Create.cshtml" />
     <Content Include="Views\Visits\Delete.cshtml" />
     <Content Include="Views\Visits\Details.cshtml" />
-    <Content Include="Views\Visits\Edit.cshtml" />
     <Content Include="Views\Visits\Index.cshtml" />
     <Content Include="Views\Substitutions\Create.cshtml" />
     <Content Include="Views\Substitutions\Delete.cshtml" />
@@ -375,16 +368,13 @@
     <Content Include="Views\Heath_Center\Details.cshtml" />
     <Content Include="Views\Heath_Center\Edit.cshtml" />
     <Content Include="Views\Heath_Center\Index.cshtml" />
-    <Content Include="Views\Patient_Diet_Chart\Create.cshtml" />
-    <Content Include="Views\Patient_Diet_Chart\Delete.cshtml" />
-    <Content Include="Views\Patient_Diet_Chart\Details.cshtml" />
-    <Content Include="Views\Patient_Diet_Chart\Edit.cshtml" />
-    <Content Include="Views\Patient_Diet_Chart\Index.cshtml" />
-    <Content Include="Views\Patient_Medication\Create.cshtml" />
-    <Content Include="Views\Patient_Medication\Delete.cshtml" />
-    <Content Include="Views\Patient_Medication\Details.cshtml" />
-    <Content Include="Views\Patient_Medication\Edit.cshtml" />
-    <Content Include="Views\Patient_Medication\Index.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Roles\ManageUserRoles.cshtml" />
+    <Content Include="Views\Visits\Create.cshtml" />
+    <Content Include="Views\Visits\Edit.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

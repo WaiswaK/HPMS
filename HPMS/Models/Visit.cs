@@ -150,10 +150,34 @@ namespace HPMS.Models
         [Column("Viral Load", TypeName = "numeric")]
         [Display(Name = "Viral Load")]
         public decimal? Viral_Load { get; set; }
-        [Column("Medical report", TypeName = "text")]
+        [Column("Medical Report", TypeName = "text")]
         [Display(Name = "Medical Report path")]
-        public string Medical_report { get; set; }
-
+        public string Medical_Report { get; set; }
+        [Column("Second Report", TypeName = "text")]
+        [Display(Name = "Medical Report path")]
+        public string Second_Report { get; set; }
+        [Column("Third Report", TypeName = "text")]
+        [Display(Name = "Medical Report path")]
+        public string Third_Report { get; set; }
+        [Column("Fourth Report", TypeName = "text")]
+        [Display(Name = "Medical Report path")]
+        public string Fourth_Report { get; set; }
+        [Display(Name = "Diet Chart")]
+        [StringLength(50)]
+        public string DC { get; set; }
+        [StringLength(50)]
+        [Display(Name = "Health Tip")]
+        public string HT { get; set; }
+        [Column("Medication ID")]
+        [Display(Name = "Medication")]
+        [StringLength(50)]
+        public string Medication_ID { get; set; }
+        [Column("Time for  Medication")]
+        [Display(Name = "Time for Medication")]
+        public TimeSpan? Time_for__Medication { get; set; }
+        public virtual Diet_Chart Diet_Chart { get; set; }
+        public virtual Health_Tip Health_Tip { get; set; }
+        public virtual Medication Medication { get; set; }
         public virtual Patient Patient { get; set; }
     }
 }

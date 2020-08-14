@@ -9,10 +9,10 @@ namespace HPMS.Controllers
 {
     public class SubstitutionsController : Controller
     {
-        private Models.HPMS db = new Models.HPMS();
+        private readonly Models.HPMS db = new Models.HPMS();
 
         // GET: Substitutions
-        [Authorize]
+        [Authorize(Roles = "Medical Practitioner")]
         public ActionResult Index()
         {
             var substitutions = db.Substitutions.Include(s => s.Patient).Include(s => s.Substitution_Line);

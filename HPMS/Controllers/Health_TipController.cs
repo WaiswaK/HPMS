@@ -9,9 +9,10 @@ namespace HPMS.Controllers
 {
     public class Health_TipController : Controller
     {
-        private Models.HPMS db = new Models.HPMS();
+        private readonly Models.HPMS db = new Models.HPMS();
 
         // GET: Health_Tip
+        [Authorize(Roles = "Medical Practitioner")]
         public ActionResult Index()
         {
             return View(db.Health_Tips.ToList());
@@ -62,7 +63,7 @@ namespace HPMS.Controllers
             {
                 var all = db.Health_Tips.ToList();
                 var tip = all.Last();
-                tip.HT = "HT-" + DataModels.DataProcess.NextNumber(tip.HT) ;
+                tip.HT = "HT-" + DataModels.DataProcess.NextNumber(tip.HT);
             }
             else
             {

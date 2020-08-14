@@ -10,10 +10,11 @@ namespace HPMS.Controllers
 {
     public class DemographicsController : Controller
     {
-        private Models.HPMS db = new Models.HPMS();
+        private readonly Models.HPMS db = new Models.HPMS();
 
         // GET: Demographics
-        [Authorize]
+        [Authorize(Roles = "Medical Practitioner")]
+        [Authorize(Roles = "Administrator")]
         public ActionResult Index()
         {
             var demographics = db.Demographics.Include(d => d.AspNetUser);
@@ -59,7 +60,7 @@ namespace HPMS.Controllers
                 else
                 {
                     if (upload != null && upload.ContentLength > 0)
-                    {                       
+                    {
                         string ext = Path.GetExtension(upload.FileName).ToLower();
                         if (ext == ".jpg" || ext == ".png" || ext == ".jpeg")
                         {

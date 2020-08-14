@@ -49,8 +49,8 @@
         @Html.LabelFor(model => model.Pregnancy_Status, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownListFor(m => m.Pregnancy_Status,
-                        new SelectList(Enum.GetValues(typeof(HPMS.Models.Pregnancy))),
-                        "Select Pregnancy Status")
+                                  new SelectList(Enum.GetValues(typeof(HPMS.Models.Pregnancy))),
+                                  "Select Pregnancy Status")
         </div>
     </div>
     <div class="form-group">
@@ -85,8 +85,8 @@
         @Html.LabelFor(model => model.TB_Status, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownListFor(m => m.TB_Status,
-                        new SelectList(Enum.GetValues(typeof(HPMS.Models.PosNeg))),
-                        "Select TB Status")
+                                  new SelectList(Enum.GetValues(typeof(HPMS.Models.PosNeg))),
+                                  "Select TB Status")
         </div>
     </div>
     <div class="form-group">
@@ -289,6 +289,58 @@
         <div class="col-md-10">
             @Html.EditorFor(model => model.Clinical_Stage, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Clinical_Stage, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Upload Medical Report", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="file" name="upload" value="Brouse" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Upload Second Medical Report", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="file" name="upload_two" value="Brouse" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Upload Third Medical Report", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="file" name="upload_three" value="Brouse" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Upload Fourth Medical Report", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="file" name="upload_four" value="Brouse" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.DC, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("DC", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.DC, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.HT, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("HT", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.HT, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Medication_ID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("Medication_ID", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Medication_ID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Time_for__Medication, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Time_for__Medication, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Time_for__Medication, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">

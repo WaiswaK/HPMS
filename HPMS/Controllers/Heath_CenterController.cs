@@ -8,9 +8,10 @@ namespace HPMS.Controllers
 {
     public class Heath_CenterController : Controller
     {
-        private Models.HPMS db = new Models.HPMS();
+        private readonly Models.HPMS db = new Models.HPMS();
 
         // GET: Heath_Center
+        [Authorize(Roles = "Administrator")]
         public ActionResult Index()
         {
             return View(db.Heath_Centers.ToList());

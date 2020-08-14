@@ -8,10 +8,10 @@ namespace HPMS.Controllers
 {
     public class StaffsController : Controller
     {
-        private Models.HPMS db = new Models.HPMS();
+        private readonly Models.HPMS db = new Models.HPMS();
 
         // GET: Staffs
-        [Authorize]
+        [Authorize(Roles = "Administrator")]
         public ActionResult Index()
         {
             var staffs = db.Staffs.Include(s => s.Demographic);
@@ -69,7 +69,7 @@ namespace HPMS.Controllers
             }
             else
             {
-               staff.SID = temp;
+                staff.SID = temp;
             }
 
             if (ModelState.IsValid)

@@ -9,9 +9,10 @@ namespace HPMS.Controllers
 {
     public class Diet_ChartController : Controller
     {
-        private Models.HPMS db = new Models.HPMS();
+        private readonly Models.HPMS db = new Models.HPMS();
 
         // GET: Diet_Chart
+        [Authorize(Roles = "Medical Practitioner")]
         public ActionResult Index()
         {
             return View(db.Diet_Charts.ToList());
@@ -45,7 +46,7 @@ namespace HPMS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "DC,Content")] Diet_Chart diet_Chart)
         {
-            var query = db.Diet_Charts.Count() + 1; 
+            var query = db.Diet_Charts.Count() + 1;
             string temp = "DIET-" + query;
             bool exist = false;
             try
@@ -62,7 +63,7 @@ namespace HPMS.Controllers
             {
                 var all = db.Diet_Charts.ToList();
                 var diet = all.Last();
-               diet.DC = "DIET-" + DataModels.DataProcess.NextNumber(diet.DC);
+                diet.DC = "DIET-" + DataModels.DataProcess.NextNumber(diet.DC);
             }
             else
             {

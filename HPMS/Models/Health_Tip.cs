@@ -10,7 +10,7 @@ namespace HPMS.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Health_Tip()
         {
-            Patient_Health_Tip = new HashSet<Patient_Health_Tip>();
+            Visits = new HashSet<Visit>();
         }
 
         [Key]
@@ -21,6 +21,6 @@ namespace HPMS.Models
         public string Tip { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Patient_Health_Tip> Patient_Health_Tip { get; set; }
+        public virtual ICollection<Visit> Visits { get; set; }
     }
 }

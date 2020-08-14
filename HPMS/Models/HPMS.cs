@@ -25,9 +25,6 @@ namespace HPMS.Models
         public virtual DbSet<History> Histories { get; set; }
         public virtual DbSet<Medication> Medications { get; set; }
         public virtual DbSet<Patient> Patients { get; set; }
-        public virtual DbSet<Patient_Diet_Chart> Patient_Diet_Charts { get; set; }
-        public virtual DbSet<Patient_Health_Tip> Patient_Health_Tips { get; set; }
-        public virtual DbSet<Patient_Medication> Patient_Medications { get; set; }
         public virtual DbSet<Staff> Staffs { get; set; }
         public virtual DbSet<Substitution> Substitutions { get; set; }
         public virtual DbSet<Substitution_Line> Substitution_Lines { get; set; }
@@ -98,10 +95,9 @@ namespace HPMS.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<Medication>()
-                .HasMany(e => e.Patient_Medication)
-                .WithRequired(e => e.Medication)
-                .HasForeignKey(e => e.Medication_ID)
-                .WillCascadeOnDelete(false);
+                .HasMany(e => e.Visits)
+                .WithOptional(e => e.Medication)
+                .HasForeignKey(e => e.Medication_ID);
 
             modelBuilder.Entity<Patient>()
                 .HasMany(e => e.Appointments)
@@ -173,7 +169,16 @@ namespace HPMS.Models
                 .HasPrecision(18, 0);
 
             modelBuilder.Entity<Visit>()
-                .Property(e => e.Medical_report)
+                .Property(e => e.Medical_Report)
+                .IsUnicode(false);
+            modelBuilder.Entity<Visit>()
+                .Property(e => e.Second_Report)
+                .IsUnicode(false);
+            modelBuilder.Entity<Visit>()
+                .Property(e => e.Third_Report)
+                .IsUnicode(false);
+            modelBuilder.Entity<Visit>()
+                .Property(e => e.Fourth_Report)
                 .IsUnicode(false);
         }
     }

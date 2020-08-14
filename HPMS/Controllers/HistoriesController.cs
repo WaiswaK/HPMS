@@ -8,10 +8,10 @@ namespace HPMS.Controllers
 {
     public class HistoriesController : Controller
     {
-        private Models.HPMS db = new Models.HPMS();
+        private readonly Models.HPMS db = new Models.HPMS();
 
         // GET: Histories
-        [Authorize]
+        [Authorize(Roles = "Administrator")]
         public ActionResult Index()
         {
             var histories = db.Histories.Include(h => h.Staff);

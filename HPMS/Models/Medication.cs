@@ -10,18 +10,18 @@ namespace HPMS.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Medication()
         {
-            Patient_Medication = new HashSet<Patient_Medication>();
+            Visits = new HashSet<Visit>();
         }
 
         [Key]
-        [Column("Medical ID")]
+        [Column("Medication ID")]
         [StringLength(50)]
-        public string Medical_ID { get; set; }
+        public string Medication_ID { get; set; }
 
         [Column(TypeName = "text")]
         public string Medicine { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Patient_Medication> Patient_Medication { get; set; }
+        public virtual ICollection<Visit> Visits { get; set; }
     }
 }

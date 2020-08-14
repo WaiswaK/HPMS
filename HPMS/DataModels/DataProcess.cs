@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace HPMS.DataModels
 {
     public class DataProcess
     {
-        private static Models.HPMS db = new Models.HPMS();
+        private static readonly Models.HPMS db = new Models.HPMS();
 
         #region Patient Processing
         public static List<ResultData> Patient_Visits(string _username)
@@ -33,7 +32,7 @@ namespace HPMS.DataModels
                         Weight = _result.Weight,
                         Weight_Score = _result.Weight_Score
                     };
-                    _patient_visits.Add(visit);           
+                    _patient_visits.Add(visit);
                 }
             }
             catch
@@ -46,7 +45,7 @@ namespace HPMS.DataModels
             string PID = string.Empty;
             try
             {
-                var query = db.Patients.Where(c=> c.NIN == _nin).Single();
+                var query = db.Patients.Where(c => c.NIN == _nin).Single();
                 PID = query.PID;
             }
             catch
@@ -102,7 +101,7 @@ namespace HPMS.DataModels
 
             }
             return found;
-        }  
+        }
         #endregion
 
         #region Dashboard Processing
@@ -130,7 +129,7 @@ namespace HPMS.DataModels
                 var dem = db.Demographics.Where(c => c.Id.Equals(PID)).Last();
                 dashboard.Username = _username;
                 dashboard.Profile_photo = dem.ImagePath;
-                dashboard.Fullnames = RemoveSpace(dem.Given_Name + " " + dem.Midle_Name + " " + dem.Family_Name);               
+                dashboard.Fullnames = RemoveSpace(dem.Given_Name + " " + dem.Midle_Name + " " + dem.Family_Name);
             }
             catch
             {
@@ -145,19 +144,29 @@ namespace HPMS.DataModels
             char[] delimiter = { '-' };
             string[] datasplit = data.Split(delimiter);
             List<string> datalist = datasplit.ToList();
-            return Int32.Parse(datalist.Last()) + 1;
+            return int.Parse(datalist.Last()) + 1;
         }
         public static string RemoveSpace(string _name)
         {
-            string name = _name;
-            name.Replace("  ", " ");
-            return name;
+            if (_name != null)
+            {
+                string name = _name;
+                name.Replace("  ", " ");
+                return name;
+            }
+            else
+                return string.Empty;
         }
         public static string Replace_(string word)
         {
             string final = word;
-            final.Replace("_", " ");
-            return final;
+            if (word != null)
+            {
+                final.Replace("_", " ");
+                return final;
+            }
+            else
+                return string.Empty;
         }
     }
 }

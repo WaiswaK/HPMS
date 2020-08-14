@@ -12,9 +12,6 @@ namespace HPMS.Models
         {
             Appointments = new HashSet<Appointment>();
             COHORTs = new HashSet<COHORT>();
-            Patient_Diet_Chart = new HashSet<Patient_Diet_Chart>();
-            Patient_Health_Tip = new HashSet<Patient_Health_Tip>();
-            Patient_Medication = new HashSet<Patient_Medication>();
             Substitutions = new HashSet<Substitution>();
             Visits = new HashSet<Visit>();
         }
@@ -49,15 +46,6 @@ namespace HPMS.Models
         public virtual ICollection<COHORT> COHORTs { get; set; }
 
         public virtual Demographic Demographic { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Patient_Diet_Chart> Patient_Diet_Chart { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Patient_Health_Tip> Patient_Health_Tip { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Patient_Medication> Patient_Medication { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Substitution> Substitutions { get; set; }

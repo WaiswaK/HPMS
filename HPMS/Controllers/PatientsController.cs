@@ -8,10 +8,10 @@ namespace HPMS.Controllers
 {
     public class PatientsController : Controller
     {
-        private Models.HPMS db = new Models.HPMS();
+        private readonly Models.HPMS db = new Models.HPMS();
 
         // GET: Patients
-        [Authorize]
+        [Authorize(Roles = "Medical Practitioner")]
         public ActionResult Index()
         {
             var patients = db.Patients.Include(p => p.Demographic);

@@ -10,7 +10,7 @@
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Diet_Chart()
         {
-            Patient_Diet_Chart = new HashSet<Patient_Diet_Chart>();
+            Visits = new HashSet<Visit>();
         }
 
         [Key]
@@ -21,6 +21,6 @@
         public string Content { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Patient_Diet_Chart> Patient_Diet_Chart { get; set; }
+        public virtual ICollection<Visit> Visits { get; set; }
     }
 }
