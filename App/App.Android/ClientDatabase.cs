@@ -2,7 +2,7 @@
 using App.DependencyInterface;
 using App.Droid;
 using App.Services;
-using SQLite.Net;
+using SQLite;
 using System;
 using System.IO;
 using Xamarin.Forms;
@@ -18,7 +18,7 @@ namespace App.Droid
             ///string dbPath = Path.Combine(AppFolderPath(), "PDDT");
             string dbPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             dbPath = Path.Combine(dbPath, Constants.dbName);
-            var conn = new SQLiteConnection(new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroid(), dbPath, true, null, null, null, null);
+            var conn = new SQLiteConnection(dbPath);
             return conn;
         }
         public void InitializeDatabase()

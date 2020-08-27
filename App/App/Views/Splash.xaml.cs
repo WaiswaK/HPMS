@@ -35,7 +35,7 @@ namespace App.Views
                     navPage = new NavigationPage(
                                 new Dashboard()
                                 {
-                                    //BindingContext = new MasterViewModel(),
+                                    BindingContext = new ViewModels.DashboardMasterViewModel(),
                                     IsPresented = true
                                 })
                     {

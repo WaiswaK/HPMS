@@ -13,8 +13,7 @@ namespace HPMS.Controllers
         private readonly Models.HPMS db = new Models.HPMS();
 
         // GET: Demographics
-        [Authorize(Roles = "Medical Practitioner")]
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Medical Practitioner,Administrator")]
         public ActionResult Index()
         {
             var demographics = db.Demographics.Include(d => d.AspNetUser);
