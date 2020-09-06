@@ -24,6 +24,11 @@ namespace HPMS
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            //Just added for Login API
+            bundles.Add(new ScriptBundle("~/bundles/app").Include(
+           "~/Scripts/knockout-{version}.js",
+           "~/Scripts/app.js"));
         }
     }
 }

@@ -6,51 +6,51 @@ using HPMS.Models;
 
 namespace HPMS.Controllers
 {
-    public class Heath_CenterController : Controller
+    public class Health_CenterController : Controller
     {
         private readonly Models.HPMS db = new Models.HPMS();
 
-        // GET: Heath_Center
+        // GET: Health_Center
         [Authorize(Roles = "Administrator")]
         public ActionResult Index()
         {
-            return View(db.Heath_Centers.ToList());
+            return View(db.Health_Centers.ToList());
         }
 
-        // GET: Heath_Center/Details/5
+        // GET: Health_Center/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Heath_Center heath_Center = db.Heath_Centers.Find(id);
-            if (heath_Center == null)
+            Health_Center health_Center = db.Health_Centers.Find(id);
+            if (health_Center == null)
             {
                 return HttpNotFound();
             }
-            return View(heath_Center);
+            return View(health_Center);
         }
 
-        // GET: Heath_Center/Create
+        // GET: Health_Center/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Heath_Center/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // POST: Health_Center/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "HCID,Center,Latitude,Longtitude,District,Parish")] Heath_Center heath_Center)
+        public ActionResult Create([Bind(Include = "HCID,Center,Latitude,Longtitude,District,Parish")] Health_Center health_Center)
         {
-            var query = db.Heath_Centers.Count() + 1;
+            var query = db.Health_Centers.Count() + 1;
             string temp = "HC-" + query;
             bool exist = false;
             try
             {
-                var search = db.Heath_Centers.Where(c => c.HCID == temp).Single();
+                var search = db.Health_Centers.Where(c => c.HCID == temp).Single();
                 exist = true;
             }
             catch
@@ -60,77 +60,76 @@ namespace HPMS.Controllers
             }
             if (exist)
             {
-                var all = db.Heath_Centers.ToList();
+                var all = db.Health_Centers.ToList();
                 var HC = all.Last();
                 HC.HCID = "HC-" + DataModels.DataProcess.NextNumber(HC.HCID);
             }
             else
             {
-                heath_Center.HCID = temp;
+                health_Center.HCID = temp;
             }
             if (ModelState.IsValid)
             {
-                db.Heath_Centers.Add(heath_Center);
+                db.Health_Centers.Add(health_Center);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            return View(heath_Center);
+            return View(health_Center);
         }
 
-        // GET: Heath_Center/Edit/5
+        // GET: Health_Center/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Heath_Center heath_Center = db.Heath_Centers.Find(id);
-            if (heath_Center == null)
+            Health_Center health_Center = db.Health_Centers.Find(id);
+            if (health_Center == null)
             {
                 return HttpNotFound();
             }
-            return View(heath_Center);
+            return View(health_Center);
         }
 
-        // POST: Heath_Center/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // POST: Health_Center/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "HCID,Center,Latitude,Longtitude,District,Parish")] Heath_Center heath_Center)
+        public ActionResult Edit([Bind(Include = "HCID,Center,Latitude,Longtitude,District,Parish")] Health_Center health_Center)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(heath_Center).State = EntityState.Modified;
+                db.Entry(health_Center).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(heath_Center);
+            return View(health_Center);
         }
 
-        // GET: Heath_Center/Delete/5
+        // GET: Health_Center/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Heath_Center heath_Center = db.Heath_Centers.Find(id);
-            if (heath_Center == null)
+            Health_Center health_Center = db.Health_Centers.Find(id);
+            if (health_Center == null)
             {
                 return HttpNotFound();
             }
-            return View(heath_Center);
+            return View(health_Center);
         }
 
-        // POST: Heath_Center/Delete/5
+        // POST: Health_Center/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Heath_Center heath_Center = db.Heath_Centers.Find(id);
-            db.Heath_Centers.Remove(heath_Center);
+            Health_Center health_Center = db.Health_Centers.Find(id);
+            db.Health_Centers.Remove(health_Center);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -1,0 +1,90 @@
+﻿@model HPMS.Models.Appointment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Appointment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Patient.PID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient.Full_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Staff.SID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Staff.SID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Appointment_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Appointment_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Appointment_Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Appointment_Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Accepted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Accepted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rescheduled)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rescheduled)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rescheduled_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rescheduled_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rescheduled_Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rescheduled_Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Completed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Completed)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Appointment_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

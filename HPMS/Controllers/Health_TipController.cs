@@ -46,7 +46,7 @@ namespace HPMS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "HT,Tip")] Health_Tip health_Tip)
         {
-            var query = db.Diet_Charts.Count() + 1;
+            var query = db.Health_Tips.Count() + 1;
             string temp = "HT-" + query;
             bool exist = false;
             try
@@ -63,7 +63,7 @@ namespace HPMS.Controllers
             {
                 var all = db.Health_Tips.ToList();
                 var tip = all.Last();
-                tip.HT = "HT-" + DataModels.DataProcess.NextNumber(tip.HT);
+                health_Tip.HT = "HT-" + DataModels.DataProcess.NextNumber(tip.HT);
             }
             else
             {

@@ -8,7 +8,7 @@ namespace HPMS.Controllers
 {
     public class RolesController : Controller
     {
-        ApplicationDbContext context = new ApplicationDbContext();
+        readonly ApplicationDbContext context = new ApplicationDbContext();
 
         //
         // GET: /Roles/

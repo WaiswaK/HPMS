@@ -14,7 +14,7 @@
     <hr />
     <dl class="dl-horizontal">
         <dd>
-            <img src="@Url.Content(imagePath)" alt="Image" width="300" height="300"/>
+            <img src="@Url.Content(imagePath)" alt="Image" width="300" height="300" />
         </dd>
 
         <dt>
@@ -55,6 +55,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.Date_of_Birth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Marital_status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marital_status)
         </dd>
 
         <dt>

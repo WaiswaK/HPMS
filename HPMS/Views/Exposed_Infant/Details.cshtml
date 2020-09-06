@@ -1,0 +1,58 @@
+﻿@model HPMS.Models.Exposed_Infant
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Exposed Infant</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Demographic.Full_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Demographic.Full_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Patient.PID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient.Full_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Infant_Feeding_Practices)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Infant_Feeding_Practices)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HIV_Test)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HIV_Test)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Results_Attempts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Results_Attempts)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EEID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

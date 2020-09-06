@@ -8,10 +8,10 @@ namespace HPMS.Controllers
 {
     public class COHORTsController : Controller
     {
-        private Models.HPMS db = new Models.HPMS();
+        private readonly Models.HPMS db = new Models.HPMS();
 
         // GET: COHORTs
-        [Authorize]
+        [Authorize(Roles = "Medical Practitioner")]
         public ActionResult Index()
         {
             var cOHORTs = db.COHORTs.Include(c => c.Patient);
@@ -36,7 +36,7 @@ namespace HPMS.Controllers
         // GET: COHORTs/Create
         public ActionResult Create()
         {
-            ViewBag.PID = new SelectList(db.Patients, "PID", "NIN");
+            ViewBag.PID = new SelectList(db.Patients, "PID", "Full_Name");
             return View();
         }
 
@@ -47,6 +47,29 @@ namespace HPMS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "COHORT_ID,Date_of_Start,PID")] COHORT cOHORT)
         {
+            var query = db.COHORTs.Count() + 1;
+            string temp = "COH-" + query;
+            bool exist = false;
+            try
+            {
+                var search = db.COHORTs.Where(c => c.COHORT_ID == temp).Single();
+                exist = true;
+            }
+            catch
+            {
+                exist = false;
+
+            }
+            if (exist)
+            {
+                var all = db.COHORTs.ToList();
+                var COH = all.Last();
+                cOHORT.COHORT_ID = "COH-" + +DataModels.DataProcess.NextNumber(COH.COHORT_ID);
+            }
+            else
+            {
+                cOHORT.COHORT_ID = temp;
+            }
             if (ModelState.IsValid)
             {
                 db.COHORTs.Add(cOHORT);
@@ -54,7 +77,7 @@ namespace HPMS.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PID = new SelectList(db.Patients, "PID", "NIN", cOHORT.PID);
+            ViewBag.PID = new SelectList(db.Patients, "PID", "Full_Name", cOHORT.PID);
             return View(cOHORT);
         }
 
@@ -70,7 +93,7 @@ namespace HPMS.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.PID = new SelectList(db.Patients, "PID", "NIN", cOHORT.PID);
+            ViewBag.PID = new SelectList(db.Patients, "PID", "Full_Name", cOHORT.PID);
             return View(cOHORT);
         }
 
@@ -87,7 +110,7 @@ namespace HPMS.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.PID = new SelectList(db.Patients, "PID", "NIN", cOHORT.PID);
+            ViewBag.PID = new SelectList(db.Patients, "PID", "Full_Name", cOHORT.PID);
             return View(cOHORT);
         }
 

@@ -2,7 +2,6 @@
 using App.Services;
 using App.ViewModels;
 using System;
-using System.Linq;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

@@ -11,9 +11,12 @@ namespace HPMS.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Demographic()
         {
+            Exposed_Infant = new HashSet<Exposed_Infant>();
+            Family_Member = new HashSet<Family_Member>();
             Forum_Comment = new HashSet<Forum_Comment>();
             Forum_Header = new HashSet<Forum_Header>();
             Patients = new HashSet<Patient>();
+            Sexual_Partner = new HashSet<Sexual_Partner>();
             Staffs = new HashSet<Staff>();
         }
 
@@ -41,6 +44,11 @@ namespace HPMS.Models
 
         [StringLength(10)]
         public string Gender { get; set; }
+
+        [Column("Marital status")]
+        [Display(Name = "Marital status")]
+        [StringLength(50)]
+        public string Marital_status { get; set; }
 
         [Column("Date of Birth", TypeName = "date")]
         [Display(Name = "Date of Birth")]
@@ -70,8 +78,16 @@ namespace HPMS.Models
         public string Id { get; set; }
 
         [Column("Full Name")]
+        [Display(Name = "Full Name")]
         public string Full_Name { get; set; }
+
         public virtual AspNetUser AspNetUser { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Exposed_Infant> Exposed_Infant { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Family_Member> Family_Member { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Forum_Comment> Forum_Comment { get; set; }
@@ -81,6 +97,9 @@ namespace HPMS.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Patient> Patients { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Sexual_Partner> Sexual_Partner { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Staff> Staffs { get; set; }

@@ -17,7 +17,6 @@
         [Display(Name = "User")]
         public string NIN { get; set; }
 
-        [Column(TypeName = "text")]
         public string Comment { get; set; }
 
         public virtual Demographic Demographic { get; set; }

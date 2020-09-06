@@ -36,7 +36,7 @@ namespace HPMS.Controllers
         // GET: Staffs/Create
         public ActionResult Create()
         {
-            ViewBag.NIN = new SelectList(db.Demographics, "NIN", "Full_Name");
+            ViewBag.NIN = new SelectList(DataModels.DataProcess.NotSet("Staff"), "NIN", "Full_Name");
             return View();
         }
 

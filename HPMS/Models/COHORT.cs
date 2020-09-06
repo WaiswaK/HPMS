@@ -1,5 +1,6 @@
 namespace HPMS.Models
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
@@ -14,8 +15,8 @@ namespace HPMS.Models
 
         [Column("Date of Start")]
         [Display(Name = "Date of Start")]
-        [StringLength(50)]
-        public string Date_of_Start { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime? Date_of_Start { get; set; }
 
         [StringLength(50)]
         [Display(Name = "Patient")]

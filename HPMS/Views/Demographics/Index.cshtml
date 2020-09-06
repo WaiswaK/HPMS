@@ -27,6 +27,9 @@
             @Html.DisplayNameFor(model => model.Date_of_Birth)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Marital_status)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Address)
         </th>
         <th>
@@ -48,46 +51,49 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Given_Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Midle_Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Family_Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gender)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date_of_Birth)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Phone_Number)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.District)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Division)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Parish)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Village)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.NIN }) |
-            @Html.ActionLink("Details", "Details", new { id = item.NIN }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.NIN })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Given_Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Midle_Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Family_Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Gender)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Date_of_Birth)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Marital_status)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Address)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Phone_Number)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.District)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Division)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Parish)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Village)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.NIN }) |
+        @Html.ActionLink("Details", "Details", new { id = item.NIN }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.NIN })
+    </td>
+</tr>
 }
 
 </table>

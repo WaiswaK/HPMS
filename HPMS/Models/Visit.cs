@@ -37,7 +37,6 @@ namespace HPMS.Models
 
         public double? Gestation { get; set; }
 
-        [Column(TypeName = "text")]
         public string FP { get; set; }
 
         [Column("FP Method")]
@@ -174,7 +173,8 @@ namespace HPMS.Models
         public string Medication_ID { get; set; }
         [Column("Time for  Medication")]
         [Display(Name = "Time for Medication")]
-        public TimeSpan? Time_for__Medication { get; set; }
+        [DataType(DataType.Time)]
+        public TimeSpan? Time_for_Medication { get; set; }
         public virtual Diet_Chart Diet_Chart { get; set; }
         public virtual Health_Tip Health_Tip { get; set; }
         public virtual Medication Medication { get; set; }

@@ -13,7 +13,7 @@ namespace HPMS.Controllers
         private readonly Models.HPMS db = new Models.HPMS();
 
         // GET: Visits
-        [Authorize(Roles = "Medical Practitioner")]
+        //[Authorize(Roles = "Medical Practitioner")]
         public ActionResult Index()
         {
             var visits = db.Visits.Include(v => v.Diet_Chart).Include(v => v.Health_Tip).Include(v => v.Medication).Include(v => v.Patient);
@@ -41,7 +41,7 @@ namespace HPMS.Controllers
             ViewBag.DC = new SelectList(db.Diet_Charts, "DC", "Content");
             ViewBag.HT = new SelectList(db.Health_Tips, "HT", "Tip");
             ViewBag.Medication_ID = new SelectList(db.Medications, "Medical_ID", "Medicine");
-            ViewBag.PID = new SelectList(db.Patients, "PID", "NIN");
+            ViewBag.PID = new SelectList(db.Patients, "PID", "Full_Name");
             return View();
         }
 
@@ -50,7 +50,7 @@ namespace HPMS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Visit_ID,PID,Visit_Date,Date_Next_Visit,Nutrition_Assessment,Pregnancy_Status,Gestation,FP,FP_Method,CaCx_Screening,TB_Status,TPT,TPT_Effects,Diagnosis,ART_Effects,Hep_Test,Hep_Result,Syphilis_Status,CTX,Other_Meds,ARV_Drugs,Fluconazole,Tests_and_Investigations,DSD_Model,SID,MUAC_SCORE,Weight,Height,Weight_Score,Height_Score,BMI_Score,Blood_pressure___Systolic,Blood_pressure___Diastolic,Blood_Sugar,Temperature,Tobacco_Use,CD4_Count,Clinical_Stage,Viral_Load,Medical_Report,Second_Report,Third_Report,Fourth_Report,DC,HT,Medication_ID,Time_for__Medication")] Visit visit, HttpPostedFileBase upload,
+        public ActionResult Create([Bind(Include = "Visit_ID,PID,Visit_Date,Date_Next_Visit,Nutrition_Assessment,Pregnancy_Status,Gestation,FP,FP_Method,CaCx_Screening,TB_Status,TPT,TPT_Effects,Diagnosis,ART_Effects,Hep_Test,Hep_Result,Syphilis_Status,CTX,Other_Meds,ARV_Drugs,Fluconazole,Tests_and_Investigations,DSD_Model,SID,MUAC_SCORE,Weight,Height,Weight_Score,Height_Score,BMI_Score,Blood_pressure___Systolic,Blood_pressure___Diastolic,Blood_Sugar,Temperature,Tobacco_Use,CD4_Count,Clinical_Stage,Viral_Load,Medical_Report,Second_Report,Third_Report,Fourth_Report,DC,HT,Medication_ID,Time_for_Medication")] Visit visit, HttpPostedFileBase upload,
             HttpPostedFileBase upload_two, HttpPostedFileBase upload_three, HttpPostedFileBase upload_four)
         {
             var query = db.Visits.Count() + 1;
@@ -137,7 +137,7 @@ namespace HPMS.Controllers
             ViewBag.DC = new SelectList(db.Diet_Charts, "DC", "Content", visit.DC);
             ViewBag.HT = new SelectList(db.Health_Tips, "HT", "Tip", visit.HT);
             ViewBag.Medication_ID = new SelectList(db.Medications, "Medical_ID", "Medicine", visit.Medication_ID);
-            ViewBag.PID = new SelectList(db.Patients, "PID", "NIN", visit.PID);
+            ViewBag.PID = new SelectList(db.Patients, "PID", "Full_Name", visit.PID);
             return View(visit);
         }
 
@@ -156,7 +156,7 @@ namespace HPMS.Controllers
             ViewBag.DC = new SelectList(db.Diet_Charts, "DC", "Content", visit.DC);
             ViewBag.HT = new SelectList(db.Health_Tips, "HT", "Tip", visit.HT);
             ViewBag.Medication_ID = new SelectList(db.Medications, "Medical_ID", "Medicine", visit.Medication_ID);
-            ViewBag.PID = new SelectList(db.Patients, "PID", "NIN", visit.PID);
+            ViewBag.PID = new SelectList(db.Patients, "PID", "Full_Name", visit.PID);
             return View(visit);
         }
 
@@ -165,7 +165,7 @@ namespace HPMS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Visit_ID,PID,Visit_Date,Date_Next_Visit,Nutrition_Assessment,Pregnancy_Status,Gestation,FP,FP_Method,CaCx_Screening,TB_Status,TPT,TPT_Effects,Diagnosis,ART_Effects,Hep_Test,Hep_Result,Syphilis_Status,CTX,Other_Meds,ARV_Drugs,Fluconazole,Tests_and_Investigations,DSD_Model,SID,MUAC_SCORE,Weight,Height,Weight_Score,Height_Score,BMI_Score,Blood_pressure___Systolic,Blood_pressure___Diastolic,Blood_Sugar,Temperature,Tobacco_Use,CD4_Count,Clinical_Stage,Viral_Load,Medical_Report,Second_Report,Third_Report,Fourth_Report,DC,HT,Medication_ID,Time_for__Medication")] Visit visit, HttpPostedFileBase upload,
+        public ActionResult Edit([Bind(Include = "Visit_ID,PID,Visit_Date,Date_Next_Visit,Nutrition_Assessment,Pregnancy_Status,Gestation,FP,FP_Method,CaCx_Screening,TB_Status,TPT,TPT_Effects,Diagnosis,ART_Effects,Hep_Test,Hep_Result,Syphilis_Status,CTX,Other_Meds,ARV_Drugs,Fluconazole,Tests_and_Investigations,DSD_Model,SID,MUAC_SCORE,Weight,Height,Weight_Score,Height_Score,BMI_Score,Blood_pressure___Systolic,Blood_pressure___Diastolic,Blood_Sugar,Temperature,Tobacco_Use,CD4_Count,Clinical_Stage,Viral_Load,Medical_Report,Second_Report,Third_Report,Fourth_Report,DC,HT,Medication_ID,Time_for_Medication")] Visit visit, HttpPostedFileBase upload,
             HttpPostedFileBase upload_two, HttpPostedFileBase upload_three, HttpPostedFileBase upload_four)
         {
             //Replacing _ here
@@ -223,7 +223,7 @@ namespace HPMS.Controllers
             ViewBag.DC = new SelectList(db.Diet_Charts, "DC", "Content", visit.DC);
             ViewBag.HT = new SelectList(db.Health_Tips, "HT", "Tip", visit.HT);
             ViewBag.Medication_ID = new SelectList(db.Medications, "Medical_ID", "Medicine", visit.Medication_ID);
-            ViewBag.PID = new SelectList(db.Patients, "PID", "NIN", visit.PID);
+            ViewBag.PID = new SelectList(db.Patients, "PID", "Full_Name", visit.PID);
             return View(visit);
         }
 

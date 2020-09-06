@@ -1,0 +1,58 @@
+﻿@model HPMS.Models.Health_Center
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Health Center</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Center)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Center)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Latitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Latitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Longtitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Longtitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.District)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.District)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Parish)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Parish)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.HCID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

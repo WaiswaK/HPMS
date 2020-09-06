@@ -1,0 +1,57 @@
+﻿@model IEnumerable<HPMS.Models.Exposed_Infant>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Demographic.Full_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Patient.PID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Infant_Feeding_Practices)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HIV_Test)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Results_Attempts)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Demographic.Full_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Patient.Full_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Infant_Feeding_Practices)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HIV_Test)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Results_Attempts)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EEID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EEID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EEID })
+        </td>
+    </tr>
+}
+
+</table>

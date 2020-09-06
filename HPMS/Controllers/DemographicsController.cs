@@ -47,14 +47,15 @@ namespace HPMS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "NIN,Given_Name,Midle_Name,Family_Name,Gender,Date_of_Birth,Address,Phone_Number,District,Division,Parish,Village,Id,ImagePath")] Demographic demographic, HttpPostedFileBase upload)
+        public ActionResult Create([Bind(Include = "NIN,Given_Name,Midle_Name,Family_Name,Gender,Date_of_Birth,Address,Phone_Number,District,Division,Parish,Village,Id,ImagePath,Full_Name,Marital_status")] Demographic demographic, HttpPostedFileBase upload)
         {
+            demographic.Marital_status = DataModels.DataProcess.Replace_(demographic.Marital_status);
             if (ModelState.IsValid)
             {
                 //Check the exisitence of user ID in other records
                 if (DataModels.DataProcess.Exists(demographic.Id))
                 {
-
+                    ModelState.AddModelError("", "Email already exists");
                 }
                 else
                 {
@@ -73,8 +74,8 @@ namespace HPMS.Controllers
                     demographic.Full_Name = DataModels.DataProcess.RemoveSpace(demographic.Given_Name + " " + demographic.Midle_Name + " " + demographic.Family_Name);
                     db.Demographics.Add(demographic);
                     db.SaveChanges();
-                }
-                return RedirectToAction("Index");
+                    return RedirectToAction("Index");
+                }             
             }
 
             ViewBag.Id = new SelectList(db.AspNetUsers, "Id", "UserName", demographic.Id);
@@ -102,26 +103,34 @@ namespace HPMS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "NIN,Given_Name,Midle_Name,Family_Name,Gender,Date_of_Birth,Address,Phone_Number,District,Division,Parish,Village,Id,ImagePath")] Demographic demographic, HttpPostedFileBase upload)
+        public ActionResult Edit([Bind(Include = "NIN,Given_Name,Midle_Name,Family_Name,Gender,Date_of_Birth,Address,Phone_Number,District,Division,Parish,Village,Id,ImagePath,Full_Name,Marital_status")] Demographic demographic, HttpPostedFileBase upload)
         {
+            demographic.Marital_status = DataModels.DataProcess.Replace_(demographic.Marital_status);
             if (ModelState.IsValid)
             {
-                if (upload != null && upload.ContentLength > 0)
+                if (DataModels.DataProcess.Exists(demographic.Id))
                 {
-                    string ext = Path.GetExtension(upload.FileName).ToLower();
-                    if (ext == ".jpg" || ext == ".png" || ext == ".jpeg")
-                    {
-                        var uploadpath = Path.Combine(Server.MapPath("~/Images/People"),
-                           demographic.Id + ".jpg");
-                        var path = @"~/Images/People" + @"/" + demographic.Id + ".jpg";
-                        demographic.ImagePath = path;
-                        upload.SaveAs(uploadpath);
-                    }
+                    ModelState.AddModelError("", "Email already exists");
                 }
-                demographic.Full_Name = DataModels.DataProcess.RemoveSpace(demographic.Given_Name + " " + demographic.Midle_Name + " " + demographic.Family_Name);
-                db.Entry(demographic).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                else
+                {
+                    if (upload != null && upload.ContentLength > 0)
+                    {
+                        string ext = Path.GetExtension(upload.FileName).ToLower();
+                        if (ext == ".jpg" || ext == ".png" || ext == ".jpeg")
+                        {
+                            var uploadpath = Path.Combine(Server.MapPath("~/Images/People"),
+                               demographic.Id + ".jpg");
+                            var path = @"~/Images/People" + @"/" + demographic.Id + ".jpg";
+                            demographic.ImagePath = path;
+                            upload.SaveAs(uploadpath);
+                        }
+                    }
+                    demographic.Full_Name = DataModels.DataProcess.RemoveSpace(demographic.Given_Name + " " + demographic.Midle_Name + " " + demographic.Family_Name);
+                    db.Entry(demographic).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
             ViewBag.Id = new SelectList(db.AspNetUsers, "Id", "UserName", demographic.Id);
             return View(demographic);

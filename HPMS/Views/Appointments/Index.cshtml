@@ -1,0 +1,81 @@
+﻿@model IEnumerable<HPMS.Models.Appointment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Patient.PID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Staff.SID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Appointment_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Appointment_Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Accepted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rescheduled)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rescheduled_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rescheduled_Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Completed)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Patient.Full_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Staff.SID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Appointment_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Appointment_Time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Accepted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rescheduled)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rescheduled_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rescheduled_Time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Completed)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Appointment_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Appointment_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Appointment_ID })
+        </td>
+    </tr>
+}
+
+</table>

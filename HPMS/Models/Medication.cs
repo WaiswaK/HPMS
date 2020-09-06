@@ -14,11 +14,10 @@ namespace HPMS.Models
         }
 
         [Key]
-        [Column("Medication ID")]
+        [Column("Medical ID")]
         [StringLength(50)]
-        public string Medication_ID { get; set; }
+        public string Medical_ID { get; set; }
 
-        [Column(TypeName = "text")]
         public string Medicine { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -12,7 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Patient.NIN)
+            @Html.DisplayNameFor(model => model.Patient.PID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Substitution_Line.Line_ID)
@@ -33,7 +33,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Patient.NIN)
+                @Html.DisplayFor(modelItem => item.Patient.Full_Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Substitution_Line.Line_ID)

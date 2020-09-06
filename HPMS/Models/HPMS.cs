@@ -18,13 +18,16 @@ namespace HPMS.Models
         public virtual DbSet<Demographic> Demographics { get; set; }
         public virtual DbSet<Diet_Chart> Diet_Charts { get; set; }
         public virtual DbSet<Education> Educations { get; set; }
+        public virtual DbSet<Exposed_Infant> Exposed_Infants { get; set; }
+        public virtual DbSet<Family_Member> Family_Members { get; set; }
         public virtual DbSet<Forum_Comment> Forum_Comments { get; set; }
         public virtual DbSet<Forum_Header> Forum_Headers { get; set; }
+        public virtual DbSet<Health_Center> Health_Centers { get; set; }
         public virtual DbSet<Health_Tip> Health_Tips { get; set; }
-        public virtual DbSet<Heath_Center> Heath_Centers { get; set; }
         public virtual DbSet<History> Histories { get; set; }
         public virtual DbSet<Medication> Medications { get; set; }
         public virtual DbSet<Patient> Patients { get; set; }
+        public virtual DbSet<Sexual_Partner> Sexual_Partners { get; set; }
         public virtual DbSet<Staff> Staffs { get; set; }
         public virtual DbSet<Substitution> Substitutions { get; set; }
         public virtual DbSet<Substitution_Line> Substitution_Lines { get; set; }
@@ -56,7 +59,22 @@ namespace HPMS.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<Demographic>()
+                .HasMany(e => e.Exposed_Infant)
+                .WithRequired(e => e.Demographic)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Demographic>()
+                .HasMany(e => e.Family_Member)
+                .WithRequired(e => e.Demographic)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Demographic>()
                 .HasMany(e => e.Patients)
+                .WithRequired(e => e.Demographic)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Demographic>()
+                .HasMany(e => e.Sexual_Partner)
                 .WithRequired(e => e.Demographic)
                 .WillCascadeOnDelete(false);
 
@@ -65,34 +83,15 @@ namespace HPMS.Models
                 .WithRequired(e => e.Demographic)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Diet_Chart>()
-                .Property(e => e.Content)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Forum_Comment>()
-                .Property(e => e.Comment)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Forum_Header>()
-                .Property(e => e.Topic)
-                .IsUnicode(false);
-
             modelBuilder.Entity<Forum_Header>()
                 .HasMany(e => e.Forum_Comment)
                 .WithOptional(e => e.Forum_Header)
                 .HasForeignKey(e => e.Forum_ID);
 
-            modelBuilder.Entity<Health_Tip>()
-                .Property(e => e.Tip)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Heath_Center>()
-                .Property(e => e.Center)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Medication>()
-                .Property(e => e.Medicine)
-                .IsUnicode(false);
+            modelBuilder.Entity<Health_Center>()
+                .HasMany(e => e.Patients)
+                .WithOptional(e => e.Health_Center)
+                .HasForeignKey(e => e.Care_Entry_Point);
 
             modelBuilder.Entity<Medication>()
                 .HasMany(e => e.Visits)
@@ -100,7 +99,26 @@ namespace HPMS.Models
                 .HasForeignKey(e => e.Medication_ID);
 
             modelBuilder.Entity<Patient>()
+                .Property(e => e.Average_Monthly_Income)
+                .HasPrecision(18, 0);
+
+            modelBuilder.Entity<Patient>()
                 .HasMany(e => e.Appointments)
+                .WithRequired(e => e.Patient)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Patient>()
+                .HasMany(e => e.Exposed_Infant)
+                .WithRequired(e => e.Patient)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Patient>()
+                .HasMany(e => e.Family_Member)
+                .WithRequired(e => e.Patient)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Patient>()
+                .HasMany(e => e.Sexual_Partner)
                 .WithRequired(e => e.Patient)
                 .WillCascadeOnDelete(false);
 
@@ -119,10 +137,6 @@ namespace HPMS.Models
                 .HasMany(e => e.Histories)
                 .WithRequired(e => e.Staff)
                 .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Visit>()
-                .Property(e => e.FP)
-                .IsUnicode(false);
 
             modelBuilder.Entity<Visit>()
                 .Property(e => e.Hep_Result)
@@ -171,12 +185,15 @@ namespace HPMS.Models
             modelBuilder.Entity<Visit>()
                 .Property(e => e.Medical_Report)
                 .IsUnicode(false);
+
             modelBuilder.Entity<Visit>()
                 .Property(e => e.Second_Report)
                 .IsUnicode(false);
+
             modelBuilder.Entity<Visit>()
                 .Property(e => e.Third_Report)
                 .IsUnicode(false);
+
             modelBuilder.Entity<Visit>()
                 .Property(e => e.Fourth_Report)
                 .IsUnicode(false);

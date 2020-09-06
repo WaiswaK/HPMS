@@ -12,7 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Patient.NIN)
+            @Html.DisplayNameFor(model => model.Patient.PID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Visit_Date)
@@ -20,112 +20,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Date_Next_Visit)
         </th>
-        
-        <th>
-            @Html.DisplayNameFor(model => model.Nutrition_Assessment)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Pregnancy_Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Gestation)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FP)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FP_Method)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CaCx_Screening)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TB_Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TPT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TPT_Effects)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Diagnosis)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ART_Effects)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Hep_Test)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Hep_Result)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Syphilis_Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CTX)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Other_Meds)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ARV_Drugs)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fluconazole)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Tests_and_Investigations)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DSD_Model)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MUAC_SCORE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Weight)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Height)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Weight_Score)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Height_Score)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BMI_Score)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Blood_pressure___Systolic)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Blood_pressure___Diastolic)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Blood_Sugar)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Temperature)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Tobacco_Use)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CD4_Count)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Viral_Load)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Clinical_Stage)
-        </th>
+       
         <th></th>
     </tr>
 
@@ -141,111 +36,7 @@
             @Html.DisplayFor(modelItem => item.Date_Next_Visit)
         </td>
        
-        <td>
-            @Html.DisplayFor(modelItem => item.Nutrition_Assessment)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Pregnancy_Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gestation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FP)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FP_Method)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CaCx_Screening)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TB_Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TPT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TPT_Effects)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Diagnosis)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ART_Effects)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Hep_Test)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Hep_Result)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Syphilis_Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CTX)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Other_Meds)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ARV_Drugs)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fluconazole)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tests_and_Investigations)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DSD_Model)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MUAC_SCORE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Weight)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Height)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Weight_Score)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Height_Score)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BMI_Score)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Blood_pressure___Systolic)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Blood_pressure___Diastolic)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Blood_Sugar)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Temperature)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tobacco_Use)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CD4_Count)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Viral_Load)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Clinical_Stage)
-        </td>
+       
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.Visit_ID }) |
             @Html.ActionLink("Details", "Details", new { id = item.Visit_ID }) |

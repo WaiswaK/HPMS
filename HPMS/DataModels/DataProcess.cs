@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using HPMS.Models;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace HPMS.DataModels
@@ -83,6 +85,20 @@ namespace HPMS.DataModels
             }
             return NIN;
         }
+        public static bool ComparePatientWithNIN(string nin, string PID)
+        {
+            try
+            {
+                var query = db.Patients.Where(c => c.PID == PID).Single();
+                if (nin == query.NIN)
+                    return true;
+                else return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         #endregion
 
         #region Demographic Processing
@@ -101,6 +117,66 @@ namespace HPMS.DataModels
 
             }
             return found;
+        }
+        public static string ImageOrName(string nin, string content)
+        {
+            string fullname = string.Empty;
+            string imagepath = string.Empty;
+            try
+            {
+                var query = db.Demographics.Where(c => c.NIN == nin).FirstOrDefault();
+                fullname = query.Full_Name;
+                imagepath = query.ImagePath;
+            }
+            catch
+            {
+            }
+            if (content == "Name")
+                return fullname;
+            else
+            {
+                return imagepath;
+            }
+        }
+        public static ICollection NotSet(string Category)
+        {
+            List<Demographic> people = db.Demographics.ToList();
+            ICollection final = people.ToList();
+            if (Category == "Patient")
+            {
+                try
+                {
+                    var query = db.Patients.ToList();
+                    foreach (var patient in query)
+                    {
+                        var find = db.Demographics.Where(c => c.NIN == patient.NIN).FirstOrDefault();
+                        people.Remove(find);
+                    }
+                    final = people.ToList();
+                }
+                catch
+                {
+
+                }
+            }
+            if (Category == "Staff")
+            {
+                try
+                {
+                    var query = db.Staffs.ToList();
+                    foreach (var staff in query)
+                    {
+                        var find = db.Demographics.Where(c => c.NIN == staff.NIN).FirstOrDefault();
+                        people.Remove(find);
+                    }
+                    final = people.ToList();
+                }
+                catch
+                {
+
+                }
+            }
+            return final;
         }
         #endregion
 
@@ -167,6 +243,39 @@ namespace HPMS.DataModels
             }
             else
                 return string.Empty;
+        }
+        public static bool Exists(string _nin, string Category)
+        {
+            bool found = false;
+            if (Category == "Patient")
+            {
+                try
+                {
+                    var query = db.Patients.Where(c => c.NIN == _nin).ToList();
+                    if (query.Count == 0)
+                        found = false;
+                    else found = true;
+                }
+                catch
+                {
+
+                }
+            }
+            if (Category == "Staff")
+            {
+                try
+                {
+                    var query = db.Staffs.Where(c => c.NIN == _nin).ToList();
+                    if (query.Count == 0)
+                        found = false;
+                    else found = true;
+                }
+                catch
+                {
+
+                }
+            }
+            return found;
         }
     }
 }

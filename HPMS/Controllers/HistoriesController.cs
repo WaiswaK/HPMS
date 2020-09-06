@@ -36,7 +36,7 @@ namespace HPMS.Controllers
         // GET: Histories/Create
         public ActionResult Create()
         {
-            ViewBag.SID = new SelectList(db.Staffs, "SID", "NIN");
+            ViewBag.SID = new SelectList(db.Staffs, "SID", "SID");
             return View();
         }
 
@@ -78,7 +78,7 @@ namespace HPMS.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.SID = new SelectList(db.Staffs, "SID", "NIN", history.SID);
+            ViewBag.SID = new SelectList(db.Staffs, "SID", "SID", history.SID);
             return View(history);
         }
 
@@ -94,7 +94,7 @@ namespace HPMS.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.SID = new SelectList(db.Staffs, "SID", "NIN", history.SID);
+            ViewBag.SID = new SelectList(db.Staffs, "SID", "SID", history.SID);
             return View(history);
         }
 
@@ -111,7 +111,7 @@ namespace HPMS.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.SID = new SelectList(db.Staffs, "SID", "NIN", history.SID);
+            ViewBag.SID = new SelectList(db.Staffs, "SID", "SID", history.SID);
             return View(history);
         }
 

@@ -37,7 +37,7 @@ namespace HPMS.Controllers
         // GET: Substitutions/Create
         public ActionResult Create()
         {
-            ViewBag.PID = new SelectList(db.Patients, "PID", "NIN");
+            ViewBag.PID = new SelectList(db.Patients, "PID", "Full_Name");
             ViewBag.Line_ID = new SelectList(db.Substitution_Lines, "Line_ID", "Line_ID");
             return View();
         }
@@ -84,7 +84,7 @@ namespace HPMS.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PID = new SelectList(db.Patients, "PID", "NIN", substitution.PID);
+            ViewBag.PID = new SelectList(db.Patients, "PID", "Full_Name", substitution.PID);
             ViewBag.Line_ID = new SelectList(db.Substitution_Lines, "Line_ID", "Line_ID", substitution.Line_ID);
             return View(substitution);
         }
@@ -101,7 +101,7 @@ namespace HPMS.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.PID = new SelectList(db.Patients, "PID", "NIN", substitution.PID);
+            ViewBag.PID = new SelectList(db.Patients, "PID", "Full_Name", substitution.PID);
             ViewBag.Line_ID = new SelectList(db.Substitution_Lines, "Line_ID", "Line_ID", substitution.Line_ID);
             return View(substitution);
         }
@@ -122,7 +122,7 @@ namespace HPMS.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.PID = new SelectList(db.Patients, "PID", "NIN", substitution.PID);
+            ViewBag.PID = new SelectList(db.Patients, "PID", "Full_Name", substitution.PID);
             ViewBag.Line_ID = new SelectList(db.Substitution_Lines, "Line_ID", "Line_ID", substitution.Line_ID);
             return View(substitution);
         }

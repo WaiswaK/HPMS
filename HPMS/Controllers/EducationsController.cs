@@ -36,7 +36,7 @@ namespace HPMS.Controllers
         // GET: Educations/Create
         public ActionResult Create()
         {
-            ViewBag.SID = new SelectList(db.Staffs, "SID", "NIN");
+            ViewBag.SID = new SelectList(db.Staffs, "SID", "SID");
             return View();
         }
 
@@ -78,7 +78,7 @@ namespace HPMS.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.SID = new SelectList(db.Staffs, "SID", "NIN", education.SID);
+            ViewBag.SID = new SelectList(db.Staffs, "SID", "SID", education.SID);
             return View(education);
         }
 
@@ -94,7 +94,7 @@ namespace HPMS.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.SID = new SelectList(db.Staffs, "SID", "NIN", education.SID);
+            ViewBag.SID = new SelectList(db.Staffs, "SID", "SID", education.SID);
             return View(education);
         }
 
@@ -111,7 +111,7 @@ namespace HPMS.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.SID = new SelectList(db.Staffs, "SID", "NIN", education.SID);
+            ViewBag.SID = new SelectList(db.Staffs, "SID", "SID", education.SID);
             return View(education);
         }
 

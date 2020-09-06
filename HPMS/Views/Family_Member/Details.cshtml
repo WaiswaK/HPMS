@@ -1,0 +1,50 @@
+﻿@model HPMS.Models.Family_Member
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Family Member</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Demographic.Full_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Demographic.Full_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Patient.PID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient.Full_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Relationship)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Relationship)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HIV_Care)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HIV_Care)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FMID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -16,7 +16,6 @@ namespace HPMS.Models
         [StringLength(50)]
         public string ID { get; set; }
 
-        [Column(TypeName = "text")]
         [Required]
         [Display(Name = "Forum")]
         public string Topic { get; set; }
