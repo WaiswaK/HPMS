@@ -29,4 +29,9 @@ namespace HPMS.DataModels
         public string Username { get; set; } // direct from data
         public string Fullnames { get; set; } // from demographic
     }
+
+    public class AppointmentData
+    {
+
+    }
 }
