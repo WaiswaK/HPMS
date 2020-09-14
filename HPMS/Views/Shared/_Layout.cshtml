@@ -23,46 +23,55 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
 
-                   @if (User.IsInRole("Administrator"))
+                    @if (User.IsInRole("Administrator"))
                     {
                         <li>@Html.ActionLink("Roles", "Index", "Roles")</li>
-                        <li>@Html.ActionLink("Demographic", "Index", "Demographics")</li>
-                        <li>@Html.ActionLink("Staff", "Index", "Staffs")</li>
-                        <li>@Html.ActionLink("Education", "Index", "Educations")</li>
-                        <li>@Html.ActionLink("History", "Index", "Histories")</li>
+                        <li>@Html.ActionLink("Demographic", "Index", "Demographics")</li>                      
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="bell">Staff Data </a>
+                            <ul class="dropdown-menu" id="notification">
+                                <li>@Html.ActionLink("Staff", "Index", "Staffs")</li>
+                                <li>@Html.ActionLink("Education", "Index", "Educations")</li>
+                                <li>@Html.ActionLink("History", "Index", "Histories")</li>
+                            </ul>
+                        </li>                       
                         <li>@Html.ActionLink("Health Center", "Index", "Health_Center")</li>
                     }
 
-                   @if (User.IsInRole("Medical Practitioner"))
+                    @if (User.IsInRole("Medical Practitioner"))
                     {
-                       <li class="dropdown">
-                           <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="bell">Patient Data </a>
-                           <ul class="dropdown-menu" id="notification">
-                               <li>@Html.ActionLink("Patient", "Index", "Patients")</li>
-                               <li>@Html.ActionLink("Sexual Partner", "Index", "Sexual_Partner")</li>
-                               <li>@Html.ActionLink("Exposed Infant", "Index", "Exposed_Infant")</li>
-                               <li>@Html.ActionLink("Family Member", "Index", "Family_Member")</li>
-                           </ul>
-                       </li>      
-                    
-                       <li class="dropdown">
-                           <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="bell">Patient Visit </a>
-                           <ul class="dropdown-menu" id="notification">
-                               <li>@Html.ActionLink("Visit", "Index", "Visits")</li>
-                               <li>@Html.ActionLink("COHORT", "Index", "COHORTs")</li>
-                               <li>@Html.ActionLink("Substitution", "Index", "Substitutions")</li>
-                               <li>@Html.ActionLink("Appointment", "Index", "Appointments")</li>
-                           </ul>
-                       </li>  
-                       
-                      <li class="dropdown">
-                           <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="bell">Health Data </a>
-                           <ul class="dropdown-menu" id="data">
-                               <li>@Html.ActionLink("Diet Chart", "Index", "Diet_Chart")</li>
-                               <li>@Html.ActionLink("Health Tip", "Index", "Health_Tip")</li>
-                           </ul>
-                    </li>
-                    } 
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="bell">Patient Data </a>
+                            <ul class="dropdown-menu" id="notification">
+                                <li>@Html.ActionLink("Patient", "Index", "Patients")</li>
+                                <li>@Html.ActionLink("Sexual Partner", "Index", "Sexual_Partner")</li>
+                                <li>@Html.ActionLink("Exposed Infant", "Index", "Exposed_Infant")</li>
+                                <li>@Html.ActionLink("Family Member", "Index", "Family_Member")</li>
+                            </ul>
+                        </li>
+
+
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="bell">Patient Visit </a>
+                            <ul class="dropdown-menu" id="notification">
+                                <li>@Html.ActionLink("Visit", "Index", "Visits")</li>
+                                <li>@Html.ActionLink("COHORT", "Index", "COHORTs")</li>
+                                <li>@Html.ActionLink("Substitution", "Index", "Substitutions")</li>
+                                <li>@Html.ActionLink("Appointment", "Index", "Appointments")</li>
+                            </ul>
+                        </li>
+
+
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="bell">Health Data </a>
+                            <ul class="dropdown-menu" id="data">
+                                <li>@Html.ActionLink("Diet Chart", "Index", "Diet_Chart")</li>
+                                <li>@Html.ActionLink("Health Tip", "Index", "Health_Tip")</li>
+                            </ul>
+                        </li>
+                    }
 
                 </ul>
                 @Html.Partial("_LoginPartial")

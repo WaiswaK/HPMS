@@ -1,6 +1,5 @@
 ﻿using HPMS.Models;
 using HPMS.Providers;
-
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -246,7 +245,7 @@ namespace HPMS.Controllers
             if (externalLogin.LoginProvider != provider)
             {
                 Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-                return new /*System.Web.Http.*/Results.ChallengeResult(provider, this);
+                return new Results.ChallengeResult(provider, this);
             }
 
             ApplicationUser user = await UserManager.FindAsync(new UserLoginInfo(externalLogin.LoginProvider,
@@ -471,7 +470,7 @@ namespace HPMS.Controllers
 
         private static class RandomOAuthStateGenerator
         {
-            private static RandomNumberGenerator _random = new RNGCryptoServiceProvider();
+            private static readonly RandomNumberGenerator _random = new RNGCryptoServiceProvider();
 
             public static string Generate(int strengthInBits)
             {

@@ -85,7 +85,7 @@ namespace HPMS.Models
         public string TB_Status { get; set; }
 
         [Column("Cryptococcal Meningitis")]
-        [Display(Name = "Care Entry Point")]
+        [Display(Name = "Cryptococcal Meningitis")]
         public bool Cryptococcal_Meningitis { get; set; }
 
         [Column("CM Date", TypeName = "date")]

@@ -171,7 +171,7 @@ namespace HPMS.Models
         [Display(Name = "Medication")]
         [StringLength(50)]
         public string Medication_ID { get; set; }
-        [Column("Time for  Medication")]
+        [Column("Time for Medication")]
         [Display(Name = "Time for Medication")]
         [DataType(DataType.Time)]
         public TimeSpan? Time_for_Medication { get; set; }
