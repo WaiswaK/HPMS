@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 
 namespace HPMS.DataModels
 {
@@ -192,6 +193,8 @@ namespace HPMS.DataModels
                 dashboard.Current_Drugs = query.ARV_Drugs;
                 dashboard.Date_Next_Visit = query.Date_Next_Visit;
                 dashboard.WHO_HIV_Stage = query.Clinical_Stage;
+                dashboard.Diet_Chart = query.DC; //To be converted
+                dashboard.Health_Tip = query.HT; //To be converted
 
                 //Cohort info in dashboard
                 var cohort = db.COHORTs.Where(c => c.PID.Equals(PID)).Last();

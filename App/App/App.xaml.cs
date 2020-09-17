@@ -13,13 +13,13 @@ namespace App
         public App()
         {
             InitializeComponent();
-            // if (Device.RuntimePlatform == Device.Android)
-            //{
-               //MainPage = new Splash();
-            // }
+            if (Device.RuntimePlatform == Device.Android)
+            {
+               MainPage = new Splash();
+            }
             //else
             //{
-            MainPage = new NavigationPage(
+           /* MainPage = new NavigationPage(
                             new Dashboard()
                             {
                                 BindingContext = new DashboardMasterViewModel(),
@@ -28,7 +28,7 @@ namespace App
             {
                 BarBackgroundColor = Color.Blue,
                 BarTextColor = Color.White
-            };
+            };*/
         }
 
         protected override void OnStart()

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace HPMS.DataModels
 {
@@ -28,10 +29,22 @@ namespace HPMS.DataModels
         public string Profile_photo { get; set; } //Under Demographic
         public string Username { get; set; } // direct from data
         public string Fullnames { get; set; } // from demographic
+        public string Health_Tip { get; set; } //visit last
+        public string Diet_Chart { get; set; } //visit last
+        //public string Documet_links { get; set; } //All visits of patient
     }
 
     public class AppointmentData
     {
-
+        //public string Appointment_ID { get; set; }
+        public string Patient { get; set; }
+        public string Doctor { get; set; }
+        public DateTime Appointment_Date { get; set; }
+        public TimeSpan Appointment_Time { get; set; }
+        //public bool Accepted { get; set; }
+        public bool? Rescheduled { get; set; }
+        public DateTime? Rescheduled_Date { get; set; }
+        public TimeSpan? Rescheduled_Time { get; set; }
+        //public bool Completed { get; set; }
     }
 }
