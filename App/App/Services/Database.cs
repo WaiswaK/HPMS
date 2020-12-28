@@ -8,6 +8,7 @@ namespace App.Services
 {
     public class Database
     {
+        #region User
         public static List<User> SelectAllUsers()
         {
             List<User> users = new List<User>();
@@ -28,12 +29,19 @@ namespace App.Services
         {
             using (var db = DependencyService.Get<IClientDatabase>().GetConnection())
             {
-                var query = (db.Table<User>().Where(c => c.User_name == user)).Single();
+                var query = (db.Table<User>().Where(c => c.Username == user)).Single();
                 return new User()
                 {
                     Active = query.Active,
                     Code = query.Code,
-                    User_name = query.User_name
+                    Username = query.Username,
+                    ART_CARE_COHORT = query.ART_CARE_COHORT,
+                    Current_Drugs = query.Current_Drugs,
+                    Date_Next_Visit = query.Date_Next_Visit,
+                    Fullnames = query.Fullnames,
+                    Profile_photo = query.Profile_photo,
+                    TB_Regimen = query.TB_Regimen,
+                    WHO_HIV_Stage = query.WHO_HIV_Stage
                 };
             }
         }
@@ -50,7 +58,7 @@ namespace App.Services
                 foreach (var user in users)
                 {
                     if (user.Active == true)
-                        active = user.User_name;
+                        active = user.Username;
                     else
                     {
                         ;
@@ -66,10 +74,15 @@ namespace App.Services
             {
                 Active = active,
                 Code = current.Code,
-                User_name = current.User_name
+                Username = current.Username
             };
             var db = DependencyService.Get<IClientDatabase>().GetConnection();
             db.Update(final);
+        }
+        public static void UpdateUser(User user)
+        {
+            var db = DependencyService.Get<IClientDatabase>().GetConnection();
+            db.Update(user);
         }
         public static void InsertUser(User user)
         {
@@ -78,7 +91,7 @@ namespace App.Services
             {
                 db.Insert(new User()
                 {
-                    User_name = user.User_name,
+                    Username = user.Username,
                     Code = user.Code,
                     Active = true
                 });
@@ -87,5 +100,58 @@ namespace App.Services
             {
             }
         }
+        #endregion
+
+        #region Visits
+        public static List<Visit> GetVisits(string user)
+        {
+            List<Visit> visits = new List<Visit>();
+            List<Visit> nullvist = null;
+            int count = 0;
+            using (var db = DependencyService.Get<IClientDatabase>().GetConnection())
+            {
+                visits = (db.Table<Visit>().Where(c => c.Username == user).ToList());
+                count = visits.Count;
+            }
+            if (count > 0)
+                return visits;
+            else
+                return nullvist;
+        }
+        private static void InsertVisit(Visit visit, string user)
+        {
+            var db = DependencyService.Get<IClientDatabase>().GetConnection();
+            try
+            {
+                db.Insert(new Visit()
+                {
+                    Visit_ID = visit.Visit_ID,
+                    Username = user,
+                    MUAC_SCORE = visit.MUAC_SCORE,
+                    Blood_pressure___Diastolic = visit.Blood_pressure___Diastolic,
+                    Blood_pressure___Systolic = visit.Blood_pressure___Systolic,
+                    Blood_Sugar = visit.Blood_Sugar,
+                    CD4_Count = visit.CD4_Count,
+                    Date_Next_Visit = visit.Date_Next_Visit,
+                    PID = visit.PID,
+                    Viral_Load = visit.Viral_Load,
+                    Visit_Date = visit.Visit_Date,
+                    Weight = visit.Weight,
+                    Weight_Score = visit.Weight_Score
+                }); 
+            }
+            catch
+            {
+                
+            }
+        }
+        public static void InsertVisits(List<Visit> visits, string user)
+        {
+            foreach(var visit in visits)
+            {
+                InsertVisit(visit, user);
+            }
+        }
+        #endregion
     }
 }

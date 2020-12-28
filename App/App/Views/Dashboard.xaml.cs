@@ -37,7 +37,9 @@ namespace App.Views
             {
                 string connected = await Plugin.Connectivity.CrossConnectivity.Current.
                 IsRemoteReachable(Constants.baseUrl, Constants.port) ? "Reachable" : "Not reachable";
-                
+
+                string username = Services.Database.UserDetails(Services.Database.GetActiveUser()).Username;
+
                 if (connected == "Reachable")
                 {
                     if(page.Title == "Home")
@@ -53,7 +55,7 @@ namespace App.Views
                     {
                         Detail = new NavigationPage(page)
                         {
-                            BindingContext = new GraphViewModel("Weight", ""),
+                            BindingContext = new GraphViewModel("Weight", username),
                             BarBackgroundColor = Color.Blue,
                             BarTextColor = Color.White
                         };
@@ -62,7 +64,7 @@ namespace App.Views
                     {
                         Detail = new NavigationPage(page)
                         {
-                            BindingContext = new GraphViewModel("MUAC_SCORE", ""),
+                            BindingContext = new GraphViewModel("MUAC_SCORE", username),
                             BarBackgroundColor = Color.Blue,
                             BarTextColor = Color.White
                         };
@@ -71,7 +73,7 @@ namespace App.Views
                     {
                         Detail = new NavigationPage(page)
                         {
-                            BindingContext = new GraphViewModel("Blood_Sugar", ""),
+                            BindingContext = new GraphViewModel("Blood_Sugar", username),
                             BarBackgroundColor = Color.Blue,
                             BarTextColor = Color.White
                         };
@@ -80,7 +82,7 @@ namespace App.Views
                     {
                         Detail = new NavigationPage(page)
                         {
-                            BindingContext = new GraphViewModel("Viral_Load", ""),
+                            BindingContext = new GraphViewModel("Viral_Load", username),
                             BarBackgroundColor = Color.Blue,
                             BarTextColor = Color.White
                         };

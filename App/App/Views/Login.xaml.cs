@@ -103,9 +103,9 @@ namespace App.Views
         {
             LoadingMsg.Text = Message.User_Validation;
             List<User> users = Services.Database.SelectAllUsers();
-            LoginTokenResult Token = new LoginTokenResult();
-            string error = string.Empty;
-            string Token_Result = string.Empty;
+            LoginTokenResult Token;
+            string error;
+            string Token_Result;
             if (users == null)
             {
                 Token = Json.GetLoginToken(username, code);
@@ -121,18 +121,18 @@ namespace App.Views
                 {
                     User user = new User()
                     {
-                        User_name = username,
+                        Username = username,
                         Code = code
                     };
                     Services.Database.InsertUser(user);
-                    FinalNavigation(user.User_name);
+                    FinalNavigation(user.Username);
                 }
             }
             else
             {
                 foreach (var user in users)
                 {
-                    if (user.User_name.Equals(username) && user.Code.Equals(code))
+                    if (user.Username.Equals(username) && user.Code.Equals(code))
                     {
                         Token = Json.GetLoginToken(username, code);
                         error = "You have entered an old password, Please enter the current password";
@@ -145,7 +145,7 @@ namespace App.Views
                         }
                         else
                         {
-                            FinalNavigation(user.User_name);
+                            FinalNavigation(user.Username);
                         }
                     }
                 }
@@ -162,6 +162,5 @@ namespace App.Views
             await Navigation.PopAsync();
         }
         #endregion
-       
     }
 }

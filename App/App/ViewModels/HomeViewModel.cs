@@ -1,4 +1,4 @@
-﻿using App.Models;
+﻿using App.Database;
 using App.Services;
 using System;
 using System.Threading.Tasks;
@@ -15,23 +15,27 @@ namespace App.ViewModels
         public string TB_Regimen { get; set; }
         public string WHO_HIV_Stage { get; set; }
         public string Username { get; set; }
-        public Dashboard DashboardData { get; set; }
+        public User ActiveUser { get; set; }
 
         public HomeViewModel()
         {
-            GetdataAsync(Username);
-            Fullnames = DashboardData.Fullnames;
-            TB_Regimen = DashboardData.TB_Regimen;
-            ART_CARE_COHORT = DashboardData.ART_CARE_COHORT;
-            Current_Drugs = DashboardData.Current_Drugs;
-            WHO_HIV_Stage = DashboardData.WHO_HIV_Stage;
-            Profile_photo = DashboardData.Profile_photo;
-            Date_Next_Visit = DashboardData.Date_Next_Visit;
+            ActiveUser = Services.Database.UserDetails(Services.Database.GetActiveUser());
+            Task.Run(async () =>
+            {
+                await UpdatedataAsync(ActiveUser);
+            });
+            Username = ActiveUser.Username;
+            Fullnames = ActiveUser.Fullnames;
+            TB_Regimen = ActiveUser.TB_Regimen;
+            ART_CARE_COHORT = ActiveUser.ART_CARE_COHORT;
+            Current_Drugs = ActiveUser.Current_Drugs;
+            WHO_HIV_Stage = ActiveUser.WHO_HIV_Stage;
+            Profile_photo = ActiveUser.Profile_photo;
+            Date_Next_Visit = ActiveUser.Date_Next_Visit;
         }
-        private async Task GetdataAsync(string _username)
+        private static async Task UpdatedataAsync(User user)
         {
-            Dashboard _dashboard = await Json.GetDashboard(_username);
+            Services.Database.UpdateUser(await Json.GetDashboard(user.Username));          
         }
-
     }
 }

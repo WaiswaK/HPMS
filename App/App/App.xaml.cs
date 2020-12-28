@@ -2,7 +2,6 @@
 using Xamarin.Forms.Xaml;
 using App.Views;
 using App.Services;
-using App.ViewModels;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace App

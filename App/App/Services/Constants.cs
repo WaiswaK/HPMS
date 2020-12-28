@@ -14,7 +14,7 @@ namespace App.Services
         public static int port = HostPort();
         public static string hostUrl = baseUrl + ":" + port;
         public static string hostAPI = hostUrl + @"/api";
-        public static string Json_link_visit = hostAPI + @"/visitapi";
+        public static string Json_link_visit = hostAPI + @"/visitsapi";
         public static string Json_link_dashboard = hostAPI + @"/dashboardapi";
         public static string NullRemove(string input)
         {

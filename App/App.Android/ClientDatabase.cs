@@ -15,7 +15,6 @@ namespace App.Droid
     {      
         public SQLiteConnection GetConnection()
         {
-            ///string dbPath = Path.Combine(AppFolderPath(), "PDDT");
             string dbPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             dbPath = Path.Combine(dbPath, Constants.dbName);
             var conn = new SQLiteConnection(dbPath);
@@ -29,6 +28,7 @@ namespace App.Droid
                 {
                     db.CreateTable<Server>();
                     db.CreateTable<User>();
+                    db.CreateTable<Visit>();
                 };
             }
             else

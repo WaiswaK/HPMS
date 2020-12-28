@@ -1,7 +1,9 @@
-﻿using App.Models;
+﻿using App.Database;
+using App.Models;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -30,7 +32,7 @@ namespace App.Services
         #endregion
 
         #region Visits Request
-        private static async Task<List<Visit>> GetData(string _username)
+        public static async Task<List<Visit>> GetData(string _username)
         {
             List<Visit> visitdata = new List<Visit>();
             string connected = await Plugin.Connectivity.CrossConnectivity.Current.
@@ -47,12 +49,12 @@ namespace App.Services
                 var request_response = await request_httpclient.PostAsync(Constants.Json_link_visit,
                                 request_formContent);
                 var request_result = await request_response.Content.ReadAsStreamAsync();
-                var request_streamReader = new System.IO.StreamReader(request_result);
+                var request_streamReader = new StreamReader(request_result);
                 var request_responseContent = request_streamReader.ReadToEnd().Trim().ToString();
                 var request_visit = JArray.Parse(request_responseContent);
                 visitdata = Visits(request_visit);
             }
-                return visitdata;
+            return visitdata;
         }
         private static List<Visit> Visits(JArray VisitArray)
         {
@@ -64,19 +66,19 @@ namespace App.Services
         private static List<Visit> VisitObjects(List<JObject> All_Objects)
         {
             List<Visit> visits = new List<Visit>();
-            foreach (var _object in All_Objects)
+            foreach (JObject _object in All_Objects)
             {
                 Visit visit = new Visit()
                 {
                     Blood_pressure___Diastolic = _object.Value<int>("Blood_pressure___Diastolic"),
-                    Visit_ID = _object.Value<string>("Visit_ID "),
+                    Visit_ID = _object.Value<string>("Visit_ID"),
                     PID = _object.Value<string>("PID"),
                     MUAC_SCORE = _object.Value<decimal>("MUAC_SCORE"),
                     Visit_Date = _object.Value<DateTime>("Visit_Date"),
 
                     Date_Next_Visit = _object.Value<DateTime>("Date_Next_Visit"),
                     Weight = _object.Value<decimal>("Weight"),
-                    Weight_Score = _object.Value<string>("Weight_Score"),
+                    Weight_Score = _object.Value<decimal>("Weight_Score"),
                     Blood_pressure___Systolic = _object.Value<decimal>("Blood_pressure___Systolic"),
                     Blood_Sugar = _object.Value<decimal>("Blood_Sugar"),
                     CD4_Count = _object.Value<decimal>("CD4_Count"),
@@ -89,29 +91,49 @@ namespace App.Services
         #endregion
 
         #region Dashboard
-        public static async Task<Dashboard> GetDashboard(string _username)
+        public static async Task<User> GetDashboard(string _username)
         {
-            Dashboard data = new Dashboard();
+            Dashboard data; 
+            User user; 
             string connected = await Plugin.Connectivity.CrossConnectivity.Current.
                 IsRemoteReachable(Constants.baseUrl, Constants.port) ? "Reachable" : "Not reachable";
 
             if (connected == "Reachable")
             {
-                var request_httpclient = new HttpClient();
-                var request_postData = new List<KeyValuePair<string, string>>
+
+                HttpClient request_httpclient = new HttpClient();
+                List<KeyValuePair<string, string>> request_postData = new List<KeyValuePair<string, string>>
                     {
                         new KeyValuePair<string, string>("UserName", _username)
                     };
-                var request_formContent = new FormUrlEncodedContent(request_postData);
-                var request_response = await request_httpclient.PostAsync(Constants.Json_link_dashboard,
+                FormUrlEncodedContent request_formContent = new FormUrlEncodedContent(request_postData);
+                HttpResponseMessage request_response = await request_httpclient.PostAsync(Constants.Json_link_dashboard,
                                 request_formContent);
-                var request_result = await request_response.Content.ReadAsStreamAsync();
-                var request_streamReader = new System.IO.StreamReader(request_result);
-                var request_responseContent = request_streamReader.ReadToEnd().Trim().ToString();
-                var request_dashboard = JObject.Parse(request_responseContent);
+                Stream request_result = await request_response.Content.ReadAsStreamAsync();
+                StreamReader request_streamReader = new StreamReader(request_result);
+                string request_responseContent = request_streamReader.ReadToEnd().Trim().ToString();
+                JObject request_dashboard = JObject.Parse(request_responseContent);
                 data = DashboardData(request_dashboard);
+
+                user = new User()
+                {
+                    Active = Database.UserDetails(Database.GetActiveUser()).Active,
+                    Username = Database.UserDetails(Database.GetActiveUser()).Username,
+                    Code = Database.UserDetails(Database.GetActiveUser()).Code,
+                    ART_CARE_COHORT = data.ART_CARE_COHORT,
+                    Current_Drugs = data.Current_Drugs,
+                    Date_Next_Visit = data.Date_Next_Visit,
+                    Fullnames = data.Fullnames,
+                    Profile_photo = data.Profile_photo,
+                    TB_Regimen = data.TB_Regimen,
+                    WHO_HIV_Stage = data.WHO_HIV_Stage
+                };
             }
-            return data;
+            else
+            {
+                user = Database.UserDetails(Database.GetActiveUser());
+            }
+            return user;
         }
         private static Dashboard DashboardData(JObject _object)
         {
@@ -128,43 +150,6 @@ namespace App.Services
             };
             return dashboard;
         }
-        #endregion
-
-        #region Graph
-        //Getting graphs
-        public static async Task<List<GraphData>> GraphContent(string _type, string _username)
-        {
-            List<GraphData> graphs = new List<GraphData>();
-            List<Visit> visits = await GetData(_username);
-            visits.Count();
-            if (visits.Count() < 7)
-            {
-                foreach(var visit in visits)
-                {
-                    GraphData graph = new GraphData()
-                    {
-                        Month = Constants.Month(visit.Visit_Date),
-                        Value = float.Parse(Constants.Value(visit, _type).ToString())                        
-                    };
-                    graphs.Add(graph);
-                }
-            }
-            else
-            {
-                int start_number = visits.Count() - 5;
-                int last_number = visits.Count + 1;
-                for (int i = start_number; i < last_number; i++)
-                {
-                    GraphData graph = new GraphData()
-                    {
-                        Month = Constants.Month(visits.ElementAt(i).Visit_Date),
-                        Value = float.Parse(Constants.Value(visits.ElementAt(i), _type).ToString())
-                    };
-                    graphs.Add(graph);
-                }
-            }
-            return graphs;
-        }
-        #endregion
+        #endregion      
     }
 }

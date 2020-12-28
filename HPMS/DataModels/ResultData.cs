@@ -11,7 +11,7 @@ namespace HPMS.DataModels
         public DateTime? Date_Next_Visit { get; set; }
         public decimal? MUAC_SCORE { get; set; }
         public decimal? Weight { get; set; }
-        public string Weight_Score { get; set; }
+        public decimal? Weight_Score { get; set; }
         public decimal? Blood_pressure___Systolic { get; set; }
         public decimal? Blood_pressure___Diastolic { get; set; }
         public decimal? Blood_Sugar { get; set; }

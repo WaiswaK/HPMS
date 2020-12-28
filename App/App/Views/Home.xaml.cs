@@ -10,6 +10,7 @@ namespace App.Views
 		public Home ()
 		{
 			InitializeComponent ();
+
 		}
 	}
 }

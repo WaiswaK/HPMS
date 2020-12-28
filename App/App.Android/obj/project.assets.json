@@ -947,6 +947,7 @@
         "lib/MonoAndroid10/Plugin.Connectivity.Abstractions.pdb",
         "lib/MonoAndroid10/Plugin.Connectivity.Abstractions.xml",
         "lib/MonoAndroid10/Plugin.Connectivity.dll",
+        "lib/MonoAndroid10/Plugin.Connectivity.dll.mdb",
         "lib/MonoAndroid10/Plugin.Connectivity.pdb",
         "lib/MonoAndroid10/Plugin.Connectivity.xml",
         "lib/UAP10/Plugin.Connectivity.Abstractions.dll",
@@ -1311,11 +1312,13 @@
         "lib/MonoAndroid10/Design/Xamarin.Forms.Core.Design.dll",
         "lib/MonoAndroid10/Design/Xamarin.Forms.Xaml.Design.dll",
         "lib/MonoAndroid10/FormsViewGroup.dll",
+        "lib/MonoAndroid10/FormsViewGroup.dll.mdb",
         "lib/MonoAndroid10/FormsViewGroup.pdb",
         "lib/MonoAndroid10/Xamarin.Forms.Core.dll",
         "lib/MonoAndroid10/Xamarin.Forms.Core.pdb",
         "lib/MonoAndroid10/Xamarin.Forms.Core.xml",
         "lib/MonoAndroid10/Xamarin.Forms.Platform.Android.dll",
+        "lib/MonoAndroid10/Xamarin.Forms.Platform.Android.dll.mdb",
         "lib/MonoAndroid10/Xamarin.Forms.Platform.Android.pdb",
         "lib/MonoAndroid10/Xamarin.Forms.Platform.dll",
         "lib/MonoAndroid10/Xamarin.Forms.Xaml.dll",
@@ -1448,24 +1451,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kenneth\\.nuget\\packages\\": {},
+    "C:\\Users\\wmugwanya\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kenneth\\Documents\\HPMS\\App\\App.Android\\App.Android.csproj",
+      "projectUniqueName": "C:\\Users\\wmugwanya\\Desktop\\Transfer\\HPMS\\App\\App.Android\\App.Android.csproj",
       "projectName": "App.Android",
-      "projectPath": "C:\\Users\\Kenneth\\Documents\\HPMS\\App\\App.Android\\App.Android.csproj",
-      "packagesPath": "C:\\Users\\Kenneth\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kenneth\\Documents\\HPMS\\App\\App.Android\\obj\\",
+      "projectPath": "C:\\Users\\wmugwanya\\Desktop\\Transfer\\HPMS\\App\\App.Android\\App.Android.csproj",
+      "packagesPath": "C:\\Users\\wmugwanya\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\wmugwanya\\Desktop\\Transfer\\HPMS\\App\\App.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Kenneth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\wmugwanya\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -1479,8 +1482,8 @@
       "frameworks": {
         "monoandroid81": {
           "projectReferences": {
-            "C:\\Users\\Kenneth\\Documents\\HPMS\\App\\App\\App.csproj": {
-              "projectPath": "C:\\Users\\Kenneth\\Documents\\HPMS\\App\\App\\App.csproj"
+            "C:\\Users\\wmugwanya\\Desktop\\Transfer\\HPMS\\App\\App\\App.csproj": {
+              "projectPath": "C:\\Users\\wmugwanya\\Desktop\\Transfer\\HPMS\\App\\App\\App.csproj"
             }
           }
         }

@@ -108,11 +108,11 @@ namespace HPMS.Models
 
         [Column("Weight Score")]
         [Display(Name = "Weight Score")]
-        public string Weight_Score { get; set; }
+        public decimal? Weight_Score { get; set; }
 
         [Column("Height Score")]
         [Display(Name = "Height Score")]
-        public string Height_Score { get; set; }
+        public decimal? Height_Score { get; set; }
 
         [Column("BMI Score")]
         [Display(Name = "BMI Score")]

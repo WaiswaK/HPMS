@@ -17,7 +17,8 @@ namespace App.ViewModels
 
         public DashboardMasterViewModel()
         {
-            //UserFullName = Services.Database.UserDetails(Services.Database.GetActiveUser()).User_name;
+            UserFullName = Services.Database.UserDetails(Services.Database.GetActiveUser()).Username;
+
             MenuItems = new ObservableCollection<DashboardMenuItem>(new[]
             {
                new DashboardMenuItem { Id = 0, Title = "Home", IconSource = "home.png", TargetType = typeof(Home) },
