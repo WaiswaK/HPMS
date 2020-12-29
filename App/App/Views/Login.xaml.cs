@@ -27,13 +27,7 @@ namespace App.Views
 
         private void Register_btn_Clicked(object sender, EventArgs e)
         {
-            host_field.IsVisible = true;
-            port_field.IsVisible = true;
-            SaveBtn.IsVisible = true;
-            email_tb.IsVisible = false;
-            password_tb.IsVisible = false;
-            login_btn.IsVisible = false;
-            register_btn.IsVisible = false;
+            Settings();
         }
 
         private void SaveBtn_Clicked(object sender, EventArgs e)
@@ -57,20 +51,14 @@ namespace App.Views
                     db.Insert(new Server()
                     {
                         Host = host_field.Text,
-                        Port = Int32.Parse(port_field.Text)
+                        Port = int.Parse(port_field.Text)
                     });
                 }
                 DisplayAlert(Message.Server_Header, Message.Server_Message, Message.Ok);
-                host_field.IsVisible = false;
-                port_field.IsVisible = false;
-                SaveBtn.IsVisible = false;
-                email_tb.IsVisible = true;
-                password_tb.IsVisible = true;
-                login_btn.IsVisible = true;
+                LoginPage();
 
             }
         }
-
         #region Login Methods
         private async void LoginAction(string username, string password)
         {
@@ -96,6 +84,7 @@ namespace App.Views
                     await DisplayAlert(Message.Login_Header, Message.Login_Message_Fail, Message.Ok);
                     IsBusy = false;
                     LoadingMsg.IsVisible = false;
+                    Settings();
                 }
             }
         }
@@ -154,12 +143,38 @@ namespace App.Views
         private async void FinalNavigation(string user)
         {
             Services.Database.UpdateUser(true, user);
+            //Update Content for user
+            await Operation.UpdatedataAsync(user);
+            await Operation.UpdateVisitAsync(user);
+
             Navigation.InsertPageBefore(new Dashboard()
             {
                 BindingContext = new ViewModels.DashboardMasterViewModel()
             }
                 , this);
             await Navigation.PopAsync();
+        }
+        #endregion
+        #region Interface
+        public void LoginPage()
+        {
+            host_field.IsVisible = false;
+            port_field.IsVisible = false;
+            SaveBtn.IsVisible = false;
+            email_tb.IsVisible = true;
+            password_tb.IsVisible = true;
+            login_btn.IsVisible = true;
+            register_btn.IsVisible = false;
+        }
+        public void Settings()
+        {
+            host_field.IsVisible = true;
+            port_field.IsVisible = true;
+            SaveBtn.IsVisible = true;
+            email_tb.IsVisible = false;
+            password_tb.IsVisible = false;
+            login_btn.IsVisible = false;
+            register_btn.IsVisible = false;
         }
         #endregion
     }

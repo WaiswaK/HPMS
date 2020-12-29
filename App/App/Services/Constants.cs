@@ -1,6 +1,5 @@
 ﻿using App.Database;
 using App.DependencyInterface;
-using App.Models;
 using System;
 using Xamarin.Forms;
 

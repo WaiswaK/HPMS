@@ -16,6 +16,8 @@ namespace HPMS
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            // Enforce HTTPS
+            //config.Filters.Add(new HPMS.Filters.RequireHttpsAttribute());
         }
     }
 }

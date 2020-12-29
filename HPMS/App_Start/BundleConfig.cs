@@ -27,7 +27,7 @@ namespace HPMS
 
             //Just added for Login API
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
-           "~/Scripts/knockout-3.5.1.js",
+           "~/Scripts/knockout-{version}.js",
            "~/Scripts/app.js"));
         }
     }

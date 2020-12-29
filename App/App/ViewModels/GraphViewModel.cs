@@ -26,22 +26,21 @@ namespace App.ViewModels
 
         public GraphViewModel(string _page, string _username)
         {
+
             Task.Run(async () =>
             {
-                await UpdateVisitAsync(_username);
+                await Operation.UpdateVisitAsync(_username);
             });
-            Initialize(_page, _username);
-            Title = _page;
-            //if(_barChart!=null)
-            //  _barChart = new LineChart();
-        }
-        private static async Task UpdateVisitAsync(string user)
-        {
-            Services.Database.InsertVisits(await Json.GetData(user), user);
-        }
+            bool skip = Skip(_username);
+            if (skip == false)
+            {
+                _barChart = new LineChart();
+                Initialize(_page, _username);
+                Title = _page;
+            }
+        }       
         private void Initialize(string _type, string _username)
         {
-            _barChart = new LineChart();
             var graphs = GraphContent(_type, _username);
             if (graphs.Count > 0)
             {
@@ -101,6 +100,25 @@ namespace App.ViewModels
 
             }
             return graphs;
+        }
+        private static bool Skip(string _username)
+        {
+            List<Visit> visits = Services.Database.GetVisits(_username);
+            if (visits == null)
+            {
+                return true;
+            }
+            else
+            {
+                if (visits.Count == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
     }
 }

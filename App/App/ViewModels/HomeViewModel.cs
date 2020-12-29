@@ -22,7 +22,7 @@ namespace App.ViewModels
             ActiveUser = Services.Database.UserDetails(Services.Database.GetActiveUser());
             Task.Run(async () =>
             {
-                await UpdatedataAsync(ActiveUser);
+                await Operation.UpdatedataAsync(ActiveUser.Username);
             });
             Username = ActiveUser.Username;
             Fullnames = ActiveUser.Fullnames;
@@ -32,10 +32,6 @@ namespace App.ViewModels
             WHO_HIV_Stage = ActiveUser.WHO_HIV_Stage;
             Profile_photo = ActiveUser.Profile_photo;
             Date_Next_Visit = ActiveUser.Date_Next_Visit;
-        }
-        private static async Task UpdatedataAsync(User user)
-        {
-            Services.Database.UpdateUser(await Json.GetDashboard(user.Username));          
-        }
+        }        
     }
 }
