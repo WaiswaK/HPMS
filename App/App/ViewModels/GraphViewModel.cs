@@ -10,8 +10,8 @@ namespace App.ViewModels
 {
     public class GraphViewModel : BaseViewModel
     {
-        private Chart _barChart;//Chart _barChart;
-        public Chart BarChart//Chart BarChart
+        private Chart _barChart;
+        public Chart BarChart
         {
             get { return _barChart; }
             set { SetProperty(ref _barChart, value); }
