@@ -80,7 +80,9 @@ namespace App.ViewModels
                     }
                     else
                     {
-                        int start_number = visits.Count() - 5;
+
+
+                        int start_number = visits.Count() - 6;
                         int last_number = visits.Count + 1;
                         for (int i = start_number; i < last_number; i++)
                         {
