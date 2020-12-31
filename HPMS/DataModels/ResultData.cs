@@ -32,14 +32,15 @@ namespace HPMS.DataModels
         public string Health_Tip { get; set; } //visit last
         public string Diet_Chart { get; set; } //visit last
 
-    public class AppointmentData
-    {
-        public string Patient { get; set; }
-        public string Doctor { get; set; }
-        public DateTime Appointment_Date { get; set; }
-        public TimeSpan Appointment_Time { get; set; }
-        public bool? Rescheduled { get; set; }
-        public DateTime? Rescheduled_Date { get; set; }
-        public TimeSpan? Rescheduled_Time { get; set; }
+        public class AppointmentData
+        {
+            public string Patient { get; set; }
+            public string Doctor { get; set; }
+            public DateTime Appointment_Date { get; set; }
+            public TimeSpan Appointment_Time { get; set; }
+            public bool? Rescheduled { get; set; }
+            public DateTime? Rescheduled_Date { get; set; }
+            public TimeSpan? Rescheduled_Time { get; set; }
+        }
     }
 }
